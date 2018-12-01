@@ -6,7 +6,7 @@ public class KeepTheLoot : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		if(collider.gameObject.tag == "player")
+		if(collider.gameObject.tag == "Player")
 		{
 			if (Input.GetKeyDown(KeyCode.E))
 			{
