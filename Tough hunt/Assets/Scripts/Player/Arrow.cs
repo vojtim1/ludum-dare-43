@@ -25,14 +25,9 @@ public class Arrow : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        var currentPosition = transform.position;
-        var nextPosition = transform.position + new Vector3(rb.velocity.x, 0, rb.velocity.y);
-
-        var deltaX = nextPosition.x - currentPosition.x;
-        var deltaY = nextPosition.y - currentPosition.y;
-
-        var rad = Mathf.Atan2(deltaY, deltaX);
-
+        var nextPosition = transform.position + (Vector3)rb.velocity;
+		var angle = Mathf.Atan2(nextPosition.y, nextPosition.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
