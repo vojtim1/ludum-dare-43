@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1485353335220898}
   m_IsPrefabAsset: 1
+--- !u!1 &1061144659036612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4321317556390648}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1485353335220898
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +46,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4321317556390648
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061144659036612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.011, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4997037848168104}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4997037848168104
 Transform:
   m_ObjectHideFlags: 1
@@ -40,7 +68,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.621, y: -0.364, z: -0.001953125}
   m_LocalScale: {x: 0.63428, y: 1.2694688, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4321317556390648}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,7 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782c9f9e7872fc14eb891e8789ca94a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  walkSpeed: 10
+  runSpeed: 300
 --- !u!114 &114497210610625414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,8 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54bb6d78eaa844489621e5e0523f943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSmoothing: 0.05
-  Speed: 10
+  movementSmoothing: 0.05
+  jumpForce: 400
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  groundCheck: {fileID: 4321317556390648}
+  groundedRadius: 0.62
 --- !u!212 &212997120220376146
 SpriteRenderer:
   m_ObjectHideFlags: 1
