@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(UnityEngine.CharacterController))]
+[RequireComponent(typeof(MyCharacterController))]
 public class PlayerMotor : MonoBehaviour {
 
     [SerializeField]
@@ -12,7 +12,7 @@ public class PlayerMotor : MonoBehaviour {
     private float runSpeed = 40.0f;
 
   
-    private CharacterController controller;
+    private MyCharacterController controller;
     private float horizontalMove = 0f;
     private bool jump = false;
     
@@ -20,7 +20,7 @@ public class PlayerMotor : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<MyCharacterController>();
     }
 
     void Update () {
@@ -32,9 +32,18 @@ public class PlayerMotor : MonoBehaviour {
         }
 
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+
+    public bool IsGoingRight()
+    {
+        if (Input.GetAxisRaw("Horizontal") > 0)
+            return true;
+        else
+            return false;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
 	}

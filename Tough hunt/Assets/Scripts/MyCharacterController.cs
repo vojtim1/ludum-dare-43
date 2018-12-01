@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class CharacterController : MonoBehaviour {
+public class MyCharacterController : MonoBehaviour {
 
     [Range(0, .3f)]
     [SerializeField]
@@ -61,5 +61,9 @@ public class CharacterController : MonoBehaviour {
             rigidbody2D.angularVelocity = 0;
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
         }
+
+        //Debug.Log(IsGoingRight());
     }
+
+    
 }
