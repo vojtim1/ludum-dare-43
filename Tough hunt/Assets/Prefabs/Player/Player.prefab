@@ -50,12 +50,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4997037848168104}
+  - component: {fileID: 212234813433228730}
   - component: {fileID: 61332556751920676}
   - component: {fileID: 50582068385805098}
   - component: {fileID: 114213843800485148}
   - component: {fileID: 114497210610625414}
   - component: {fileID: 114427586159463588}
-  - component: {fileID: 212234813433228730}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485353335220898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.91, y: 4.51, z: -0.001953125}
+  m_LocalPosition: {x: -4.21, y: -0.364, z: -0.001953125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4321317556390648}
@@ -201,13 +201,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMotor: {fileID: 0}
-  health: 100
-  speed: 400
+  maxHealth: 100
+  speed: 600
   arrowDamage: 100
   arrowSpeed: 2000
+  maxArrowCount: 10
   holdIndicator: {fileID: 0}
   arrow: {fileID: 1297186293645426, guid: 8086f0cde57ec1f4d9c2af87a823745b, type: 2}
   arrowSpawnPoint: {fileID: 4933960879998860}
+  boostModifier: 1
 --- !u!114 &114497210610625414
 MonoBehaviour:
   m_ObjectHideFlags: 1

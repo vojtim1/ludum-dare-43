@@ -10,16 +10,18 @@ public class Player : MonoBehaviour
 	public PlayerMotor playerMotor;
 
 	[SerializeField]
-	float health;
+	float maxHealth;
 	[SerializeField]
 	float speed;
 	[SerializeField]
 	float arrowDamage;
 	[SerializeField]
 	float arrowSpeed;
+	[SerializeField]
+	float maxArrowCount;
 
-	float currentDamageMultiplier = 0.0f;
-	float damageMultiplierAdd = 0.7f;
+	private float currentHealth;
+	private int currentArrowCount;
 
 	float holdingMaxTime = 2;
 	float holdingTime = 0;
@@ -47,20 +49,24 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		playerMotor.RunSpeed = speed;
+		RegainResources();
 	}
 
 	bool isHolding = false;
+
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
 			holdingTime = 0;
 			isHolding = true;
+			playerMotor.RunSpeed = speed / 4;
 		}
 		if(Input.GetKeyUp(KeyCode.Mouse0))
 		{
 			isHolding = false;
-			Shoot(100, holdingTime/holdingMaxTime);
+			Shoot(arrowDamage, holdingTime/holdingMaxTime);
+			playerMotor.RunSpeed = speed;
 		}
 		if(isHolding)
 		{
@@ -71,24 +77,30 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	[SerializeField]
+	private int boostModifier;
 	public void Boost(int foodAmount)
 	{
-		
+		float baseToAdd = foodAmount * boostModifier;
+		maxHealth += baseToAdd;
+		speed += baseToAdd;
+		arrowDamage += baseToAdd;
+		arrowSpeed += baseToAdd * 10f;
+		maxArrowCount += baseToAdd * 0.1f;
+		holdingMaxTime -= baseToAdd * 0.005f;
 	}
 
 	public void RegainResources()
 	{
-
+		currentHealth = maxHealth;
+		currentArrowCount = (int)Mathf.Round(maxArrowCount);
 	}
 
 	void Shoot(float damage, float timeMultiplier)
 	{
-		var currentCamera = Camera.main;
-
-		Debug.Log(currentCamera);
-
-		if (currentCamera != null)
+		if(currentArrowCount > 0)
 		{
+			currentArrowCount--;
 			GameObject arrowInstance;
 			Vector3 projectileDirection = ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
 			projectileDirection.z = 0;
@@ -100,11 +112,8 @@ public class Player : MonoBehaviour
 			if (projectileDirection.magnitude != maxMagnitude * timeMultiplier)
 				projectileDirection *= multiplier;
 
-			print(projectileDirection.magnitude);
-
 			arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
 			arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * arrowSpeed);
 		}
-
 	}
 }
