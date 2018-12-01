@@ -35,19 +35,12 @@ public class Arrow : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.gameObject.layer == 9)
-        //{
-        //    Destroy(collision.gameObject);
-        //}
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 9)//If is prey
         {
             transform.SetParent(collision.transform);
+            collision.gameObject.SendMessage("TakeDamage", 25);
         }
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<Collider2D>().enabled = false;

@@ -1868,12 +1868,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265953943}
+  - component: {fileID: 265953944}
   - component: {fileID: 265953942}
   - component: {fileID: 265953941}
   - component: {fileID: 265953940}
   - component: {fileID: 265953939}
   - component: {fileID: 265953938}
-  - component: {fileID: 265953944}
+  - component: {fileID: 265953945}
   m_Layer: 9
   m_Name: Bear
   m_TagString: Untagged
@@ -1914,7 +1915,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 2.8666666, y: 2.4}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1922,7 +1923,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.99, y: 2.07}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.05
 --- !u!50 &265953940
 Rigidbody2D:
   serializedVersion: 4
@@ -1988,7 +1989,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 265953937}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.977303, y: 3.6952386, z: -0.001953125}
+  m_LocalPosition: {x: -53.977303, y: 3.061, z: -0.001953125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 135015822}
@@ -2030,9 +2031,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cf7b861fba7ce484f902129db4bb2463, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd25a709109d54e44bd6f3b0da5f4b54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2, y: 2}
@@ -2041,6 +2042,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &265953945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 265953937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1d3ce0243706446b52d3b2c02c16bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &300784935
 GameObject:
   m_ObjectHideFlags: 0
