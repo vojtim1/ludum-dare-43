@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeepTheLoot : MonoBehaviour {
 
-	private void OnTriggerEnter2D(Collider2D collider)
+	private void OnTriggerStay2D(Collider2D collider)
 	{
 		if(collider.gameObject.tag == "Player")
 		{

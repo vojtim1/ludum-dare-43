@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sleep : MonoBehaviour {
-	private void OnTriggerEnter2D(Collider2D collider)
+	private void OnTriggerStay2D(Collider2D collider)
 	{
 		if (collider.gameObject.tag == "Player")
 		{
-			if (Input.GetKeyDown(KeyCode.E))
+			if (Input.GetKey(KeyCode.E))
 			{
-				GameController.instance.CurrentGameTime = 0;
+				GameController gc = GameController.instance;
+				if(gc.CurrentGameTime > gc.TotalDayTime / 2)
+				gc.CurrentGameTime = 0;
 			}
 		}
 	}
