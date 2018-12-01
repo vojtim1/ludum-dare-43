@@ -43,8 +43,6 @@ public class GameController : MonoBehaviour {
 	// only for testing
 	public Text testingText;
 
-
-	// Use this for initialization
 	void Awake()
 	{
 		if (instance == null)
