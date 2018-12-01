@@ -22,7 +22,6 @@ public class GameController : MonoBehaviour {
 			currentGameTime = value;
 		}*/
 	}
-
 	[SerializeField]
 	private float totalDayTime;
 	public float TotalDayTime
@@ -37,12 +36,13 @@ public class GameController : MonoBehaviour {
 			totalDayTime = value;
 		}*/
 	}
+	private int currentDay;
+
+	private Village village;
 
 	// only for testing
 	public Text testingText;
 
-
-	// Use this for initialization
 	void Awake()
 	{
 		if (instance == null)
@@ -57,19 +57,38 @@ public class GameController : MonoBehaviour {
 
 	void Start () {
 		currentGameTime = 0;
+		currentDay = 0;
+
+		village = Village.instance;
+
+		raidEvaluated = false;
 	}
-	
-	
+
+	private bool raidEvaluated;
 	void Update () {
 		currentGameTime += Time.deltaTime;
 		if(currentGameTime >= totalDayTime)
 		{
 			currentGameTime -= totalDayTime;
+			currentDay++;
+			raidEvaluated = false;
+			village.NewDay();
+		}
+		if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
+		{
+			// TODO: check that player is far enough
+			village.StartRaid(currentDay);
+			raidEvaluated = true;
 		}
 	}
 
 	public void AddFood(int amount)
 	{
 		this.carryingFood += amount;
+	}
+
+	public void GameOver()
+	{
+		testingText.text = "The village was raided!";
 	}
 }
