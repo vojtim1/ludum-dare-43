@@ -40,9 +40,6 @@ public class GameController : MonoBehaviour {
 
 	private Village village;
 
-	// only for testing
-	public Text testingText;
-
 	void Awake()
 	{
 		if (instance == null)
@@ -89,6 +86,6 @@ public class GameController : MonoBehaviour {
 
 	public void GameOver()
 	{
-		testingText.text = "The village was raided!";
+		Debug.Log("The village was raided!");
 	}
 }

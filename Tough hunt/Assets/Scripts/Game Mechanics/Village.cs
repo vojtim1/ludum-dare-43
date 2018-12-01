@@ -39,7 +39,6 @@ public class Village : MonoBehaviour
 		}
 
 		raidChance += 0.1f;
-		GameController.instance.testingText.text = "";
 	}
 
 	public void AddFood(int amount)
@@ -51,7 +50,7 @@ public class Village : MonoBehaviour
 	{
 		if(Random.Range(0.0f, 1.0f) > raidChance)
 		{
-			GameController.instance.testingText.text = "escaped";
+			Debug.Log("escaped");
 			return;
 		}
 		raidChance = 0.1f;
