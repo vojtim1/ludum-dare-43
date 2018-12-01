@@ -22,10 +22,6 @@ public class MyCharacterController : MonoBehaviour
     [SerializeField]
     private float groundedRadius;
 
-    [SerializeField]
-    private GameObject spriteObject;
-    private SpriteRenderer spriteRenderer;
-
     private bool grounded = false;
     private Rigidbody2D rigidbody2D;
     private Vector3 velocity = Vector3.zero;
@@ -33,7 +29,6 @@ public class MyCharacterController : MonoBehaviour
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        spriteRenderer = spriteObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnDrawGizmos()
