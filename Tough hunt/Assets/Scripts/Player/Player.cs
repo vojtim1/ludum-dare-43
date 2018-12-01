@@ -76,11 +76,18 @@ public class Player : MonoBehaviour
 
         if (currentCamera != null)
         {
+            GameObject _arrowPrefab;
+            Vector3 projectileDirection = ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+            _arrowPrefab = Instantiate(arrow, transform.position + projectileDirection * 250, Quaternion.Euler(Vector3.zero));
+            _arrowPrefab.transform.position = new Vector3(_arrowPrefab.transform.position.x, _arrowPrefab.transform.position.y, 0);
+            _arrowPrefab.GetComponent<Rigidbody2D>().AddForce(projectileDirection * 50);
+            /*
             var mousePosition = currentCamera.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = this.transform.position.z;
 
             var spawnedArrow = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(mousePosition));
             spawnedArrow.GetComponent<Rigidbody2D>().AddForce((mousePosition - arrowSpawnPoint.position).normalized * arrowForce * damageMultiplierAdd);
+            */
         }
         
     }

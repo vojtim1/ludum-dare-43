@@ -8,6 +8,7 @@ public class Arrow : MonoBehaviour {
     // Use this for initialization
     float spawnTime;
     Rigidbody2D rb;
+    Vector2 direction;
 
 
 	void Start () {
@@ -36,5 +37,10 @@ public class Arrow : MonoBehaviour {
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    public void SetDirection(Vector2 _direction)
+    {
+        direction = _direction;
     }
 }
