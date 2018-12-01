@@ -44,19 +44,18 @@ public class PeacefulMotor : MonoBehaviour {
     {
         if (isRunning)
         {
-            if (Vector2.SqrMagnitude(new Vector2(gameObject.transform.position.x - player.position.x, gameObject.transform.position.y - player.position.y)) >= escapeDistance * escapeDistance)
+            if (Vector2.Distance(player.position, transform.position) >= escapeDistance)
             {
                 isRunning = false;
                 runningDirection = Vector3.zero;
             }
-
+            if (Physics2D.Raycast(transform.position, Vector2.left, Vector2.left.magnitude * 2, 1 << 8).transform)
+            {
+                print(Physics2D.Raycast(transform.position, Vector2.left, Vector2.left.magnitude * 2, 1 << 8).transform);
+                jump = true;
+            }
             horizontalMove = runningDirection.x * speed;
-
-            Debug.Log(Vector2.SqrMagnitude(new Vector2(gameObject.transform.position.x - player.position.x, gameObject.transform.position.y - player.position.y)));
-            Debug.Log(escapeDistance * escapeDistance);
-
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
