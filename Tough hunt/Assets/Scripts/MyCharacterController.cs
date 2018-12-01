@@ -65,13 +65,7 @@ public class MyCharacterController : MonoBehaviour
 
         if (grounded && jump)
         {
-            //rigidbody2D.velocity = Vector3.zero;
-            //rigidbody2D.angularVelocity = 0;
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
         }
-
-        //Debug.Log(IsGoingRight());
     }
-
-
 }
