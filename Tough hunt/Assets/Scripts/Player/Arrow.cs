@@ -20,13 +20,13 @@ public class Arrow : MonoBehaviour {
 	void Update () {
         if (Time.time > spawnTime + 10.0)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 	}
 
     private void FixedUpdate()
     {
-        var nextPosition = transform.position + (Vector3)rb.velocity;
+        var nextPosition = transform.position + (Vector3)rb.velocity*100;
 		var angle = Mathf.Atan2(nextPosition.y, nextPosition.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
@@ -37,10 +37,5 @@ public class Arrow : MonoBehaviour {
         {
             Destroy(collision.gameObject);
         }
-    }
-
-    public void SetDirection(Vector2 _direction)
-    {
-        direction = _direction;
     }
 }
