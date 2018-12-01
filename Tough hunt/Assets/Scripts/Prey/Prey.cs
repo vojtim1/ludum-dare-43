@@ -17,13 +17,16 @@ public class Prey : MonoBehaviour {
 		
 	}
 
-    public void TakeDamage(float damage)
+    void TakeDamage(float damage)
     {
         health -= damage;
 
         if (health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+            Die();
+    }
+
+    void Die()
+    {
+        GetComponent<Rigidbody2D>().simulated = false;
     }
 }

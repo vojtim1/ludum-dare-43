@@ -91,6 +91,7 @@ public class DangerousMotor : MonoBehaviour {
             }
 
             isAttacking = true;
+            isRunning = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
