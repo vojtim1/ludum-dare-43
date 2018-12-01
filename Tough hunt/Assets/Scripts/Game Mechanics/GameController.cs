@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour {
 	}
 	private int currentDay;
 
+	private float distanceToAllowRaid;
 
 	private Village village;
 	private GameObject player;
@@ -61,6 +62,9 @@ public class GameController : MonoBehaviour {
 
 		village = Village.instance;
 		player = GameObject.FindGameObjectWithTag("Player");
+		playerScript = Player.instance;
+
+		distanceToAllowRaid = Screen.width * 2;
 
 		raidEvaluated = false;
 	}
@@ -77,16 +81,18 @@ public class GameController : MonoBehaviour {
 		}
 		if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
 		{
-			// TODO: check that player is far enough
-			
-			village.StartRaid(currentDay);
-			raidEvaluated = true;
+			if(Math.Abs(player.transform.position.x) > distanceToAllowRaid)
+			{
+				village.StartRaid(currentDay);
+				raidEvaluated = true;
+			}
 		}
 	}
 
 	public void KeepTheLoot()
 	{
-		// TODO
+		playerScript.Boost(carryingFood);
+		carryingFood = 0;
 	}
 
 	public void SacrificeTheLoot()
@@ -102,7 +108,7 @@ public class GameController : MonoBehaviour {
 
 	public void RegainResources()
 	{
-
+		playerScript.RegainResources();
 	}
 
 	public void GameOver()

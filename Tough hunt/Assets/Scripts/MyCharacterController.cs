@@ -60,11 +60,15 @@ public class MyCharacterController : MonoBehaviour {
         Vector3 targetVelocity = new Vector2(move, rigidbody2D.velocity.y);
         rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-        if (rigidbody2D.velocity.x < 0)
+        if (targetVelocity.x < 0)
         {
             spriteRenderer.flipX = true;
         }
-        else
+<<<<<<< HEAD
+        else if(targetVelocity.x > 0)
+=======
+        else if (rigidbody2D.velocity.x > 0)
+>>>>>>> 89795ca6c4aca5b3c4231e297ded217de7a66caf
         {
             spriteRenderer.flipX = false;
         }
