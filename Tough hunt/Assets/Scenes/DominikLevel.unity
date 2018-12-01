@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4948bcf4410ff5341b766b5d24dca744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 300
   escapeDistance: 7.05
   player: {fileID: 1371983433}
 --- !u!4 &1014730456
