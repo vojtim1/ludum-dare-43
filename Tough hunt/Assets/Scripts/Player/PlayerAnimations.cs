@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour {
+    private SpriteRenderer sr;
+    private Animator
 
 	// Use this for initialization
 	void Start () {
