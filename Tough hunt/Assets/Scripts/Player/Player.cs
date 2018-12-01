@@ -31,9 +31,6 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	GameObject arrow;
 
-	[SerializeField]
-	Transform arrowSpawnPoint;
-
 	void Awake()
 	{
 		if (instance == null)
