@@ -16,6 +16,7 @@ public class CameraMovementControl : MonoBehaviour
     void Start()
     {
         cam = transform;
+		Camera.main.orthographicSize = Mathf.Min(minZoom, maxZoom);
 	}
 	
 	void LateUpdate()

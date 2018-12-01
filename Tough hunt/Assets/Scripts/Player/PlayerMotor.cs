@@ -5,22 +5,30 @@ using UnityEngine;
 [RequireComponent(typeof(MyCharacterController))]
 public class PlayerMotor : MonoBehaviour {
 
-    [SerializeField]
-    private float walkSpeed = 10.0f;
+    private float runSpeed;
+	public float RunSpeed
+	{
+		get
+		{
+			return runSpeed;
+		}
 
-    [SerializeField]
-    private float runSpeed = 40.0f;
+		set
+		{
+			runSpeed = value;
+		}
+	}
 
-  
-    private MyCharacterController controller;
+	private MyCharacterController controller;
     private float horizontalMove = 0f;
     private bool jump = false;
-    
 
-    // Use this for initialization
-    void Awake()
+	
+
+	void Awake()
     {
         controller = GetComponent<MyCharacterController>();
+		Player.instance.playerMotor = this;
     }
 
     void Update () {
@@ -33,7 +41,6 @@ public class PlayerMotor : MonoBehaviour {
 
 	}
 
-
     public bool IsGoingRight()
     {
         if (Input.GetAxisRaw("Horizontal") > 0)
@@ -42,7 +49,6 @@ public class PlayerMotor : MonoBehaviour {
             return false;
     }
 
-    // Update is called once per frame
     void FixedUpdate () {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;

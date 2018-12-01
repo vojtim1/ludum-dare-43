@@ -77,13 +77,13 @@ public class GameController : MonoBehaviour {
 			currentGameTime -= totalDayTime;
 			currentDay++;
 			raidEvaluated = false;
-			village.NewDay();
+			village.NewDay(currentDay);
 		}
 		if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
 		{
 			if(Math.Abs(player.transform.position.x) > distanceToAllowRaid)
 			{
-				village.StartRaid(currentDay);
+				village.StartRaid();
 				raidEvaluated = true;
 			}
 		}

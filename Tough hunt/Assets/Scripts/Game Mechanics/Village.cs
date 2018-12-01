@@ -30,9 +30,9 @@ public class Village : MonoBehaviour
 		currentFood = 0;
 	}
 
-	public void NewDay()
+	public void NewDay(int currentDay)
 	{
-		currentFood -= dailyFoodIncome;
+		currentFood -= dailyFoodIncome * currentDay;
 		if(currentFood < 0)
 		{
 			currentFood = 0;
@@ -46,7 +46,7 @@ public class Village : MonoBehaviour
 		currentFood += amount;
 	}
 
-	public void StartRaid(int currentDay)
+	public void StartRaid()
 	{
 		if(Random.Range(0.0f, 1.0f) > raidChance)
 		{
@@ -55,7 +55,7 @@ public class Village : MonoBehaviour
 		}
 		raidChance = 0.1f;
 
-		if (currentFood >= foodToSustainRaid * currentDay)
+		if (currentFood >= foodToSustainRaid)
 		{
 			// OK
 		}

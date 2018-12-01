@@ -97,4 +97,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carryingFood: 0
   totalDayTime: 480
-  distanceToAllowRaid: 0

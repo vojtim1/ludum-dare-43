@@ -7,28 +7,30 @@ public class Player : MonoBehaviour
 {
 	public static Player instance;
 
+	public PlayerMotor playerMotor;
+
 	[SerializeField]
-    GameObject arrow;
+	float health;
+	[SerializeField]
+	float speed;
+	[SerializeField]
+	float arrowDamage;
+	[SerializeField]
+	float arrowSpeed;
 
-    [SerializeField]
-    Transform arrowSpawnPoint;
+	float currentDamageMultiplier = 0.0f;
+	float damageMultiplierAdd = 0.7f;
 
-    public float damage = 100.0f;
+	float holdingMaxTime = 2;
+	float holdingTime = 0;
+	[SerializeField]
+	Image holdIndicator;
 
-    public float health = 100.0f;
+	[SerializeField]
+	GameObject arrow;
 
-    float currentDamageMultiplier = 0.0f;
-    float damageMultiplierAdd = 0.7f;
-
-    float holdingMaxTime = 2;
-    float holdingTime = 0;
-    [SerializeField]
-    Image holdIndicator;
-
-    [SerializeField]
-    float arrowForce = 10;
-
-    bool isHolding = false;
+	[SerializeField]
+	Transform arrowSpawnPoint;
 
 	void Awake()
 	{
@@ -42,28 +44,34 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            holdingTime = 0;
-            isHolding = true;
-        }
-        if(Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            isHolding = false;
-            Shoot(100, holdingTime/holdingMaxTime);
-        }
-        if(isHolding)
-        {
-            holdingTime += Time.deltaTime;
-            if (holdingTime >= holdingMaxTime)
-                holdingTime = holdingMaxTime;
-            holdIndicator.fillAmount = holdingTime / holdingMaxTime;
-        }
-    }
+	private void Start()
+	{
+		playerMotor.RunSpeed = speed;
+	}
 
-	public void Boost(int amount)
+	bool isHolding = false;
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			holdingTime = 0;
+			isHolding = true;
+		}
+		if(Input.GetKeyUp(KeyCode.Mouse0))
+		{
+			isHolding = false;
+			Shoot(100, holdingTime/holdingMaxTime);
+		}
+		if(isHolding)
+		{
+			holdingTime += Time.deltaTime;
+			if (holdingTime >= holdingMaxTime)
+				holdingTime = holdingMaxTime;
+			holdIndicator.fillAmount = holdingTime / holdingMaxTime;
+		}
+	}
+
+	public void Boost(int foodAmount)
 	{
 		
 	}
@@ -73,29 +81,30 @@ public class Player : MonoBehaviour
 
 	}
 
-    void Shoot(float damage, float timeMultiplier)
-    {
-        var currentCamera = Camera.main;
+	void Shoot(float damage, float timeMultiplier)
+	{
+		var currentCamera = Camera.main;
 
-        Debug.Log(currentCamera);
+		Debug.Log(currentCamera);
 
-        if (currentCamera != null)
-        {
-            GameObject arrowInstance;
-            Vector3 projectileDirection = ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
-            projectileDirection.z = 0;
+		if (currentCamera != null)
+		{
+			GameObject arrowInstance;
+			Vector3 projectileDirection = ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+			projectileDirection.z = 0;
 
-            float maxMagnitude = 0.5f;
+			float maxMagnitude = 0.5f;
 
-            float multiplier = (maxMagnitude * timeMultiplier) / projectileDirection.magnitude;
+			float multiplier = (maxMagnitude * timeMultiplier) / projectileDirection.magnitude;
 
-            if (projectileDirection.magnitude != maxMagnitude * timeMultiplier)
-                projectileDirection *= multiplier;
+			if (projectileDirection.magnitude != maxMagnitude * timeMultiplier)
+				projectileDirection *= multiplier;
 
-            print(projectileDirection.magnitude);
+			print(projectileDirection.magnitude);
 
-            arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
-            arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * 2000);
-        }
-    }
+			arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
+			arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * arrowSpeed);
+		}
+
+	}
 }

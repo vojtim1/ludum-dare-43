@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4146160748735942}
   - component: {fileID: 212667867065121654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4321317556390648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 114213843800485148}
   - component: {fileID: 114497210610625414}
   - component: {fileID: 114427586159463588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4933960879998860}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArrowSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485353335220898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.621, y: -0.364, z: -0.001953125}
+  m_LocalPosition: {x: -4.21, y: -0.364, z: -0.001953125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4321317556390648}
@@ -188,8 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782c9f9e7872fc14eb891e8789ca94a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
-  runSpeed: 200
 --- !u!114 &114427586159463588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,11 +199,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1b36c0d2832d4469aaec04b2b4215d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMotor: {fileID: 0}
+  health: 100
+  speed: 40
+  arrowDamage: 100
+  arrowSpeed: 2000
+  holdIndicator: {fileID: 0}
   arrow: {fileID: 1297186293645426, guid: 8086f0cde57ec1f4d9c2af87a823745b, type: 2}
   arrowSpawnPoint: {fileID: 4933960879998860}
-  damage: 100
-  health: 100
-  arrowForce: 800
 --- !u!114 &114497210610625414
 MonoBehaviour:
   m_ObjectHideFlags: 1
