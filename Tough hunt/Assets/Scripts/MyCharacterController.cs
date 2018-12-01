@@ -56,12 +56,14 @@ public class MyCharacterController : MonoBehaviour
         Vector3 targetVelocity = new Vector2(move, rigidbody2D.velocity.y);
         rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-        if(Input.GetAxisRaw("Horizontal") != 0)
+        if(rigidbody2D.velocity.x != 0)
         {
-            if (Input.GetAxisRaw("Horizontal") > 0)
+            if (rigidbody2D.velocity.x > 0.1f)
                 GetComponent<SpriteRenderer>().flipX = false;
-            else GetComponent<SpriteRenderer>().flipX = true;
+            if (rigidbody2D.velocity.x < -0.1f)
+                GetComponent<SpriteRenderer>().flipX = true;
         }
+           
 
         if (grounded && jump)
         {
