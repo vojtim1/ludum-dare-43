@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour {
     private SpriteRenderer sr;
-    private Animator
+    private Animator ar;
 
 	// Use this for initialization
 	void Start () {
-		
+        sr = GetComponent<SpriteRenderer>();
+        ar = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            GetComponent<Animator>().CrossFade("Walk", 0);
+            ar.CrossFade("Walk", 0);
             if (!GetComponent<PlayerMotor>().IsGoingRight())
-                GetComponent<SpriteRenderer>().flipX = true;
-            else GetComponent<SpriteRenderer>().flipX = false;
+                sr.flipX = true;
+            else sr.flipX = false;
         }
-        else GetComponent<Animator>().CrossFade("Idle", 0);
+        else ar.CrossFade("Idle", 0);
     }
 }
