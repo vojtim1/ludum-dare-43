@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class MyCharacterController : MonoBehaviour {
+public class MyCharacterController : MonoBehaviour
+{
 
     [Range(0, .3f)]
     [SerializeField]
@@ -60,15 +61,11 @@ public class MyCharacterController : MonoBehaviour {
         Vector3 targetVelocity = new Vector2(move, rigidbody2D.velocity.y);
         rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-        if (targetVelocity.x < 0)
+        if (rigidbody2D.velocity.x < 0)
         {
             spriteRenderer.flipX = true;
         }
-<<<<<<< HEAD
-        else if(targetVelocity.x > 0)
-=======
         else if (rigidbody2D.velocity.x > 0)
->>>>>>> 89795ca6c4aca5b3c4231e297ded217de7a66caf
         {
             spriteRenderer.flipX = false;
         }
@@ -83,5 +80,5 @@ public class MyCharacterController : MonoBehaviour {
         //Debug.Log(IsGoingRight());
     }
 
-    
+
 }
