@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
+	public static Player instance;
+
+	[SerializeField]
     GameObject arrow;
 
     [SerializeField]
@@ -22,13 +24,19 @@ public class Player : MonoBehaviour
 
     bool isHolding = false;
 
-    void Start()
-    {
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+	}
 
-    }
-
-    // Update is called once per frame
-    void Update()
+	void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -50,6 +58,16 @@ public class Player : MonoBehaviour
         }
     }
 
+	public void Boost(int amount)
+	{
+		
+	}
+
+	public void RegainResources()
+	{
+
+	}
+
     void Shoot(float damage)
     {
         var currentCamera = Camera.main;
@@ -58,11 +76,18 @@ public class Player : MonoBehaviour
 
         if (currentCamera != null)
         {
+            GameObject _arrowPrefab;
+            Vector3 projectileDirection = ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+            _arrowPrefab = Instantiate(arrow, transform.position + projectileDirection * 250, Quaternion.Euler(Vector3.zero));
+            _arrowPrefab.transform.position = new Vector3(_arrowPrefab.transform.position.x, _arrowPrefab.transform.position.y, 0);
+            _arrowPrefab.GetComponent<Rigidbody2D>().AddForce(projectileDirection * 50);
+            /*
             var mousePosition = currentCamera.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = this.transform.position.z;
 
             var spawnedArrow = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(mousePosition));
             spawnedArrow.GetComponent<Rigidbody2D>().AddForce((mousePosition - arrowSpawnPoint.position).normalized * arrowForce * damageMultiplierAdd);
+            */
         }
         
     }

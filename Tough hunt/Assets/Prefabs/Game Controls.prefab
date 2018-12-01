@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114332611798243342}
   m_Layer: 0
   m_Name: Game Controls
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c111fe5f804cb864c983e956895335d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dailyFoodIncome: 0
+  foodToSustainRaid: 0
+  raidChance: 0
 --- !u!114 &114332611798243342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,5 +96,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryingFood: 0
-  totalDayTime: 30
-  testingText: {fileID: 0}
+  totalDayTime: 480
+  distanceToAllowRaid: 0
