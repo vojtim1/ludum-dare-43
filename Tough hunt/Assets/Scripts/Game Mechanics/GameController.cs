@@ -79,6 +79,17 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	public void KeepTheLoot()
+	{
+
+	}
+
+	public void SacrificeTheLoot()
+	{
+		village.AddFood(carryingFood);
+		carryingFood = 0;
+	}
+
 	public void AddFood(int amount)
 	{
 		this.carryingFood += amount;
