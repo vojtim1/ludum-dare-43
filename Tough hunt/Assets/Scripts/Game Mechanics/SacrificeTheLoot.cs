@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SacrificeTheLoot : MonoBehaviour {
-	private void OnTriggerStay2D(Collider2D collider)
+	private void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject.tag == "Player")
 		{
