@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
+	public int carryingFood;
 
-	// Use this for initialization
+	private float currentTime;
+	public float totalTime;
+	
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 		
+	}
+
+	public void AddFood(int amount)
+	{
+		this.carryingFood += amount;
 	}
 }
