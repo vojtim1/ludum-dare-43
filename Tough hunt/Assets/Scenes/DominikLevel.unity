@@ -188,7 +188,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &411426492
+--- !u!1001 &689813231
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -226,6 +226,11 @@ Prefab:
     - target: {fileID: 4997037848168104, guid: c0886329b74c700409ffecae1bff8f73, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212667867065121654, guid: c0886329b74c700409ffecae1bff8f73,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0886329b74c700409ffecae1bff8f73, type: 2}
@@ -283,6 +288,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 1268375145}
   groundedRadius: 1.1
+  spriteObject: {fileID: 0}
 --- !u!50 &1014730454
 Rigidbody2D:
   serializedVersion: 4
@@ -543,35 +549,6 @@ Prefab:
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 20872094670941096, guid: 83a4f1c70c39055488889c2b327ec45b,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.7311321
-      objectReference: {fileID: 0}
-    - target: {fileID: 20872094670941096, guid: 83a4f1c70c39055488889c2b327ec45b,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.91616994
-      objectReference: {fileID: 0}
-    - target: {fileID: 20872094670941096, guid: 83a4f1c70c39055488889c2b327ec45b,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114665965785862492, guid: 83a4f1c70c39055488889c2b327ec45b,
-        type: 2}
-      propertyPath: maxZoom
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114665965785862492, guid: 83a4f1c70c39055488889c2b327ec45b,
-        type: 2}
-      propertyPath: minZoom
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422890178118914, guid: 83a4f1c70c39055488889c2b327ec45b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83a4f1c70c39055488889c2b327ec45b, type: 2}
   m_IsPrefabAsset: 0
@@ -609,29 +586,4 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4997037848168104, guid: c0886329b74c700409ffecae1bff8f73,
     type: 2}
-  m_PrefabInternal: {fileID: 411426492}
---- !u!1 &2045172898 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1297186293645426, guid: 8086f0cde57ec1f4d9c2af87a823745b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1182685555}
---- !u!50 &2045172899
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2045172898}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_PrefabInternal: {fileID: 689813231}

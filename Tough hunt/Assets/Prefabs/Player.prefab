@@ -77,23 +77,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1851519103067528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4302716443811930}
-  - component: {fileID: 20060767874556376}
-  - component: {fileID: 81416789872037542}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &4146160748735942
 Transform:
   m_ObjectHideFlags: 1
@@ -106,19 +89,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4997037848168104}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4302716443811930
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851519103067528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3, z: -8.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4997037848168104}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4321317556390648
 Transform:
@@ -144,7 +114,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4997037848168104}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4997037848168104
 Transform:
@@ -158,51 +128,10 @@ Transform:
   m_Children:
   - {fileID: 4321317556390648}
   - {fileID: 4146160748735942}
-  - {fileID: 4302716443811930}
   - {fileID: 4933960879998860}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20060767874556376
-Camera:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851519103067528}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!50 &50582068385805098
 Rigidbody2D:
   serializedVersion: 4
@@ -214,7 +143,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -244,17 +173,10 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 1.32, y: 2.58}
   m_EdgeRadius: 0
---- !u!81 &81416789872037542
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851519103067528}
-  m_Enabled: 1
 --- !u!114 &114213843800485148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,6 +203,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 1297186293645426, guid: 8086f0cde57ec1f4d9c2af87a823745b, type: 2}
   arrowSpawnPoint: {fileID: 4933960879998860}
+  damage: 100
+  health: 100
+  arrowForce: 800
 --- !u!114 &114497210610625414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,12 +218,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSmoothing: 0.05
-  jumpForce: 250
+  jumpForce: 5000
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 4321317556390648}
   groundedRadius: 0.62
+  spriteObject: {fileID: 1013099280154986}
 --- !u!212 &212667867065121654
 SpriteRenderer:
   m_ObjectHideFlags: 1

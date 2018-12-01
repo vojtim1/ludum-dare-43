@@ -24,7 +24,7 @@ public class PeacefulMotor : MonoBehaviour {
     Vector2 runningDirection = Vector3.zero;
 
     // IDLE
-    float changeActionTime = Time.time;
+    float changeActionTime = 0;
 
 
     // Use this for initialization
