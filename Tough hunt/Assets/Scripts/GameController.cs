@@ -24,7 +24,8 @@ public class GameController : MonoBehaviour {
 
 	private void UpdateBackground()
 	{
-		Camera.main.backgroundColor.a = 
+		float opacity = currentTime / totalDayTime;
+		//Camera.main.backgroundColor.a = opacity;
 	}
 
 	public void AddFood(int amount)
