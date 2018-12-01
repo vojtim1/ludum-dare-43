@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -18,6 +19,11 @@ public class Player : MonoBehaviour
 
     float currentDamageMultiplier = 0.0f;
     float damageMultiplierAdd = 0.7f;
+
+    float holdingMaxTime = 2;
+    float holdingTime = 0;
+    [SerializeField]
+    Image holdIndicator;
 
     [SerializeField]
     float arrowForce = 10;
@@ -38,23 +44,22 @@ public class Player : MonoBehaviour
 
 	void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            holdingTime = 0;
             isHolding = true;
-            if (damageMultiplierAdd < 1)
-            {
-                damageMultiplierAdd += damageMultiplierAdd * Time.deltaTime;
-            }
-            
         }
-        else if (Input.GetMouseButtonUp(0))
+        if(Input.GetKeyUp(KeyCode.Mouse0))
         {
-            if (isHolding)
-            {
-                Shoot(damage * currentDamageMultiplier);
-                currentDamageMultiplier = 0;
-                isHolding = false;
-            }
+            isHolding = false;
+            Shoot(100, holdingTime/holdingMaxTime);
+        }
+        if(isHolding)
+        {
+            holdingTime += Time.deltaTime;
+            if (holdingTime >= holdingMaxTime)
+                holdingTime = holdingMaxTime;
+            holdIndicator.fillAmount = holdingTime / holdingMaxTime;
         }
     }
 
@@ -68,7 +73,7 @@ public class Player : MonoBehaviour
 
 	}
 
-    void Shoot(float damage)
+    void Shoot(float damage, float timeMultiplier)
     {
         var currentCamera = Camera.main;
 
@@ -78,16 +83,19 @@ public class Player : MonoBehaviour
         {
             GameObject arrowInstance;
             Vector3 projectileDirection = ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+            projectileDirection.z = 0;
+
+            float maxMagnitude = 0.5f;
+
+            float multiplier = (maxMagnitude * timeMultiplier) / projectileDirection.magnitude;
+
+            if (projectileDirection.magnitude != maxMagnitude * timeMultiplier)
+                projectileDirection *= multiplier;
+
+            print(projectileDirection.magnitude);
+
             arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
             arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * 2000);
-            /*
-            var mousePosition = currentCamera.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = this.transform.position.z;
-
-            var spawnedArrow = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(mousePosition));
-            spawnedArrow.GetComponent<Rigidbody2D>().AddForce((mousePosition - arrowSpawnPoint.position).normalized * arrowForce * damageMultiplierAdd);
-            */
         }
-        
     }
 }
