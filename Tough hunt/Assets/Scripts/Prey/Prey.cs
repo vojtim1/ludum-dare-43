@@ -22,11 +22,8 @@ public class Prey : MonoBehaviour {
         health -= damage;
 
         if (health <= 0)
-            Die();
-    }
-
-    void Die()
-    {
-        GetComponent<Rigidbody2D>().simulated = false;
+        {
+            Destroy(gameObject);
+        }
     }
 }
