@@ -21,6 +21,10 @@ public class MyCharacterController : MonoBehaviour {
     [SerializeField]
     private float groundedRadius;
 
+    [SerializeField]
+    private GameObject spriteObject;
+    private SpriteRenderer spriteRenderer;
+
     private bool grounded = false;
     private Rigidbody2D rigidbody2D;
     private Vector3 velocity = Vector3.zero;
@@ -28,6 +32,7 @@ public class MyCharacterController : MonoBehaviour {
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = spriteObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnDrawGizmos()
@@ -54,6 +59,15 @@ public class MyCharacterController : MonoBehaviour {
     {
         Vector3 targetVelocity = new Vector2(move, rigidbody2D.velocity.y);
         rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
+
+        if (rigidbody2D.velocity.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
 
         if (grounded && jump)
         {

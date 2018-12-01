@@ -10,12 +10,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform arrowSpawnPoint;
 
-    float damage = 100.0f;
-    float health = 100.0f;
+    public float damage = 100.0f;
+
+    public float health = 100.0f;
 
     float currentDamageMultiplier = 0.0f;
     float damageMultiplierAdd = 0.7f;
 
+    [SerializeField]
     float arrowForce = 10;
 
     bool isHolding = false;
@@ -50,10 +52,18 @@ public class Player : MonoBehaviour
 
     void Shoot(float damage)
     {
-        var mousePosition = Input.mousePosition;
-        mousePosition.z = this.transform.position.z;
+        var currentCamera = Camera.main;
 
-        var spawnedArrow = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(mousePosition));
-        spawnedArrow.GetComponent<Rigidbody2D>().AddForce((mousePosition - arrowSpawnPoint.position).normalized * arrowForce * damageMultiplierAdd);
+        Debug.Log(currentCamera);
+
+        if (currentCamera != null)
+        {
+            var mousePosition = currentCamera.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = this.transform.position.z;
+
+            var spawnedArrow = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.Euler(mousePosition));
+            spawnedArrow.GetComponent<Rigidbody2D>().AddForce((mousePosition - arrowSpawnPoint.position).normalized * arrowForce * damageMultiplierAdd);
+        }
+        
     }
 }
