@@ -8,14 +8,16 @@ public class LightingController : MonoBehaviour {
 		
 	}
 	
-	/*void Update () {
-		float colorLevel = currentTime / totalDayTime;
-		if (currentTime > totalDayTime / 2)
+	void Update () {
+		float currentGameTime = GameController.instance.CurrentGameTime;
+		float totalDayTime = GameController.instance.TotalDayTime;
+		float colorLevel = currentGameTime / totalDayTime;
+		if (currentGameTime > totalDayTime / 2)
 		{
 			colorLevel = 1 - colorLevel;
 		}
 		colorLevel = Mathf.Sin(2 * Mathf.PI * colorLevel);
 		colorLevel = (colorLevel + 1) / 2;
 		Camera.main.backgroundColor = new Color(colorLevel, colorLevel, colorLevel);
-	}*/
+	}
 }

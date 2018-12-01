@@ -23,10 +23,24 @@ public class GameController : MonoBehaviour {
 		}*/
 	}
 
-	public float totalDayTime;
+	[SerializeField]
+	private float totalDayTime;
+	public float TotalDayTime
+	{
+		get
+		{
+			return totalDayTime;
+		}
+
+		/*set
+		{
+			totalDayTime = value;
+		}*/
+	}
 
 	// only for testing
 	public Text testingText;
+
 
 	// Use this for initialization
 	void Awake()
@@ -42,15 +56,15 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start () {
-		CurrentGameTime = 0;
+		currentGameTime = 0;
 	}
 	
 	
 	void Update () {
-		CurrentGameTime += Time.deltaTime;
-		if(CurrentGameTime >= totalDayTime)
+		currentGameTime += Time.deltaTime;
+		if(currentGameTime >= totalDayTime)
 		{
-			CurrentGameTime -= totalDayTime;
+			currentGameTime -= totalDayTime;
 		}
 	}
 
