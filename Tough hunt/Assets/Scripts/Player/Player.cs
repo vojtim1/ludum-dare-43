@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
+	public static Player instance;
+
+	[SerializeField]
     GameObject arrow;
 
     [SerializeField]
@@ -22,13 +24,19 @@ public class Player : MonoBehaviour
 
     bool isHolding = false;
 
-    void Start()
-    {
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+	}
 
-    }
-
-    // Update is called once per frame
-    void Update()
+	void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -49,6 +57,16 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+	public void Boost(int amount)
+	{
+		
+	}
+
+	public void RegainResources()
+	{
+
+	}
 
     void Shoot(float damage)
     {
