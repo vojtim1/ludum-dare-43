@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerController))]
 public class PlayerMotor : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    public PlayerController controller;
+
+    float horizontalMove = 0f;
+
+    // Use this for initialization
+    void Awake()
+    {
+        controller = GetComponent<PlayerController>();
+    }
+
+    void Update () {
+        horizontalMove = Input.GetAxisRaw("Horizontal");
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+        controller.Move(horizontalMove, false);
 	}
 }
