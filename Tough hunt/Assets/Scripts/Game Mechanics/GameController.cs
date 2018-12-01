@@ -17,10 +17,10 @@ public class GameController : MonoBehaviour {
 			return currentGameTime;
 		}
 
-		/*set
+		set
 		{
 			currentGameTime = value;
-		}*/
+		}
 	}
 	[SerializeField]
 	private float totalDayTime;
@@ -38,7 +38,10 @@ public class GameController : MonoBehaviour {
 	}
 	private int currentDay;
 
+
 	private Village village;
+	private GameObject player;
+	private Player playerScript;
 
 	void Awake()
 	{
@@ -57,6 +60,7 @@ public class GameController : MonoBehaviour {
 		currentDay = 0;
 
 		village = Village.instance;
+		player = GameObject.FindGameObjectWithTag("Player");
 
 		raidEvaluated = false;
 	}
@@ -74,6 +78,7 @@ public class GameController : MonoBehaviour {
 		if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
 		{
 			// TODO: check that player is far enough
+			
 			village.StartRaid(currentDay);
 			raidEvaluated = true;
 		}
@@ -81,7 +86,7 @@ public class GameController : MonoBehaviour {
 
 	public void KeepTheLoot()
 	{
-
+		// TODO
 	}
 
 	public void SacrificeTheLoot()
@@ -93,6 +98,11 @@ public class GameController : MonoBehaviour {
 	public void AddFood(int amount)
 	{
 		this.carryingFood += amount;
+	}
+
+	public void RegainResources()
+	{
+
 	}
 
 	public void GameOver()
