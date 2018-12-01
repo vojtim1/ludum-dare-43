@@ -65,11 +65,7 @@ public class MyCharacterController : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-<<<<<<< HEAD
-        else if(targetVelocity.x > 0)
-=======
         else if (rigidbody2D.velocity.x > 0)
->>>>>>> 65e11ad6fdee986d18c08edd5a4c304f32ec3d09
         {
             spriteRenderer.flipX = false;
         }
