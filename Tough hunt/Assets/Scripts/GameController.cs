@@ -1,31 +1,57 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
+	public static GameController instance;
+
 	public int carryingFood;
 
-	private float currentTime;
+	private float currentGameTime;
+	public float CurrentGameTime
+	{
+		get
+		{
+			return currentGameTime;
+		}
+
+		/*set
+		{
+			currentGameTime = value;
+		}*/
+	}
+
 	public float totalDayTime;
-	
+
+	// only for testing
+	public Text testingText;
+
+	// Use this for initialization
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+	}
+
 	void Start () {
-		
+		CurrentGameTime = 0;
 	}
 	
 	
 	void Update () {
-		currentTime += Time.deltaTime;
-		if(currentTime >= totalDayTime)
+		CurrentGameTime += Time.deltaTime;
+		if(CurrentGameTime >= totalDayTime)
 		{
-			currentTime -= totalDayTime;
+			CurrentGameTime -= totalDayTime;
 		}
-		UpdateBackground();
-	}
-
-	private void UpdateBackground()
-	{
-		float opacity = currentTime / totalDayTime;
-		//Camera.main.backgroundColor.a = opacity;
 	}
 
 	public void AddFood(int amount)
