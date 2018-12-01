@@ -559,11 +559,6 @@ Prefab:
       propertyPath: holdIndicator
       value: 
       objectReference: {fileID: 1058268258}
-    - target: {fileID: 114427586159463588, guid: c0886329b74c700409ffecae1bff8f73,
-        type: 2}
-      propertyPath: speed
-      value: 500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0886329b74c700409ffecae1bff8f73, type: 2}
   m_IsPrefabAsset: 0
