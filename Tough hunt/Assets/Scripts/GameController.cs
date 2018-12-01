@@ -19,6 +19,12 @@ public class GameController : MonoBehaviour {
 		{
 			currentTime -= totalDayTime;
 		}
+		UpdateBackground();
+	}
+
+	private void UpdateBackground()
+	{
+		Camera.main.backgroundColor.a = 
 	}
 
 	public void AddFood(int amount)
