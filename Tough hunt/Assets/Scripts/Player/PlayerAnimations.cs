@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour {
     private SpriteRenderer sr;
+<<<<<<< HEAD
+    private Animator
+=======
     private Animator ar;
+>>>>>>> 1ee9ff9f388706641597cf5a8910844943d83397
 
 	// Use this for initialization
 	void Start () {

@@ -23,6 +23,9 @@ public class PeacefulMotor : MonoBehaviour {
     bool isWalking = false;
     Vector2 runningDirection = Vector3.zero;
 
+    // IDLE
+    float changeActionTime = Time.time;
+
 
     // Use this for initialization
     void Awake()
@@ -41,21 +44,17 @@ public class PeacefulMotor : MonoBehaviour {
     {
         if (isRunning)
         {
-            if (Vector2.SqrMagnitude(new Vector2(gameObject.transform.position.x - player.position.x, gameObject.transform.position.y - player.position.y)) > escapeDistance * escapeDistance)
+            if (Vector2.SqrMagnitude(new Vector2(gameObject.transform.position.x - player.position.x, gameObject.transform.position.y - player.position.y)) >= escapeDistance * escapeDistance)
             {
                 isRunning = false;
                 runningDirection = Vector3.zero;
             }
 
+            horizontalMove = runningDirection.x * speed;
+
             Debug.Log(Vector2.SqrMagnitude(new Vector2(gameObject.transform.position.x - player.position.x, gameObject.transform.position.y - player.position.y)));
             Debug.Log(escapeDistance * escapeDistance);
 
-        }
-
-
-        if (isWalking || isRunning)
-        {
-            horizontalMove = runningDirection.x * speed;
         }
         
     }
