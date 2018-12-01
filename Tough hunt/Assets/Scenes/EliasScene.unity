@@ -157,6 +157,11 @@ Prefab:
       propertyPath: testingText
       value: 
       objectReference: {fileID: 766487372}
+    - target: {fileID: 114720940735681210, guid: c9965b250549e4347b899bde9f02c6ab,
+        type: 2}
+      propertyPath: totalDayTime
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9965b250549e4347b899bde9f02c6ab, type: 2}
   m_IsPrefabAsset: 0
@@ -489,15 +494,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4004054976330658, guid: 7f7d796cee2340842a3be765b494fdea, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.1898575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4004054976330658, guid: 7f7d796cee2340842a3be765b494fdea, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.025978
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4004054976330658, guid: 7f7d796cee2340842a3be765b494fdea, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.113507435
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4004054976330658, guid: 7f7d796cee2340842a3be765b494fdea, type: 2}
       propertyPath: m_LocalRotation.x

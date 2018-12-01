@@ -18,6 +18,6 @@ public class LightingController : MonoBehaviour {
 		}
 		colorLevel = Mathf.Sin(2 * Mathf.PI * colorLevel);
 		colorLevel = (colorLevel + 1) / 2;
-		Camera.main.backgroundColor = new Color(colorLevel, colorLevel, colorLevel);
+		Camera.main.backgroundColor = new Color(colorLevel / 2, colorLevel / 2, colorLevel);
 	}
 }
