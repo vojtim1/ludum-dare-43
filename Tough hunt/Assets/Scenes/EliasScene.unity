@@ -167,6 +167,14 @@ Prefab:
       propertyPath: messagesboard
       value: 
       objectReference: {fileID: 244266240}
+    - target: {fileID: 4041797832967552, guid: 1c876da57ded31546a7fb0ab0a0bb308, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -9.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041797832967552, guid: 1c876da57ded31546a7fb0ab0a0bb308, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c876da57ded31546a7fb0ab0a0bb308, type: 2}
   m_IsPrefabAsset: 0
