@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryingFood: 0
-  totalDayTime: 4.8
+  totalDayTime: 480
   messageboard: {fileID: 114362089805301840}
   foodDisplay: {fileID: 1483931512905712}
 --- !u!114 &114362089805301840
