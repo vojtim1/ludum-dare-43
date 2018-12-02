@@ -7,9 +7,9 @@ public class Village : MonoBehaviour
 
 	public static Village instance;
 
-	private int currentFood;
-	public int dailyFoodIncome;
-	public int foodToSustainRaid;
+	private int currentFood = 0;
+	public int dailyFoodIncome = 10;
+	public int foodToSustainRaid = 10;
 
 	public float raidChance;
 
@@ -30,9 +30,9 @@ public class Village : MonoBehaviour
 		currentFood = 0;
 	}
 
-	public void NewDay(int currentDay)
+	public void NewDay()
 	{
-		currentFood -= dailyFoodIncome * currentDay;
+		currentFood -= dailyFoodIncome;
 		if(currentFood < 0)
 		{
 			currentFood = 0;
@@ -46,22 +46,21 @@ public class Village : MonoBehaviour
 		currentFood += amount;
 	}
 
-	public void StartRaid()
+	public void StartRaid(int currentDay)
 	{
 		if(Random.Range(0.0f, 1.0f) > raidChance)
 		{
-			Debug.Log("escaped");
 			return;
 		}
 		raidChance = 0.1f;
 
-		if (currentFood >= foodToSustainRaid)
+		if (currentFood >= foodToSustainRaid * currentDay)
 		{
 			// OK
 		}
 		else
 		{
-			GameController.instance.GameOver();
+			GameController.instance.GameOver("villageRaided");
 		}
 	}
 }

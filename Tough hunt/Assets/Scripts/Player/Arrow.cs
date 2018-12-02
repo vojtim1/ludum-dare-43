@@ -44,12 +44,18 @@ public class Arrow : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+	private float damage;
+	public void SetDamage(float damage)
+	{
+		this.damage = damage;
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 9)//If is prey
         {
             transform.SetParent(collision.transform);
-            collision.gameObject.SendMessage("TakeDamage", 25);
+            collision.gameObject.SendMessage("TakeDamage", damage);
 			arrowHit.Play();
         }
 		if(collision.gameObject.layer == 8)
