@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour {
 		raidEvaluated = false;
 
 		messageboard.gameObject.SetActive(true);
-		messageboard.DisplayText("Thou shan't.");
+		messageboard.DisplayText("Welcome to the game.","Welcome text.");
 	}
 
 	private bool raidEvaluated;
@@ -170,10 +170,10 @@ public class GameController : MonoBehaviour {
 		switch (deathType)
 		{
 			case "playerDead":
-				messageboard.DisplayText("You died. The game is over.");
+				messageboard.DisplayText("Game over!", "You died. The game is over.");
 				break;
 			case "villageRaided":
-				messageboard.DisplayText("The village was raided. The game is over.");
+				messageboard.DisplayText("Game over!", "The village was raided. The game is over.");
 				break;
 		}
 	}

@@ -913,6 +913,7 @@ MonoBehaviour:
   arrowSpeed: 2000
   maxArrowCount: 10
   holdIndicator: {fileID: 0}
+  healthText: {fileID: 0}
   arrow: {fileID: 1297186293645426, guid: 8086f0cde57ec1f4d9c2af87a823745b, type: 2}
   arrowShot: {fileID: 82399289748920368}
   boostModifier: 1
