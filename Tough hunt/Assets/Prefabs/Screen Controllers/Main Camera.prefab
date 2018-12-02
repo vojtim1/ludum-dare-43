@@ -103,5 +103,5 @@ MonoBehaviour:
   cameraSpeed: 5
   horizontalBorder: 0.12
   verticalBorder: 0.24
-  maxZoom: 12
-  minZoom: 12
+  maxZoom: 5
+  minZoom: 5
