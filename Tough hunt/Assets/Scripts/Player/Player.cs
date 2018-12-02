@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 			{
 				holdingTime = 0;
 				isHolding = true;
-				playerMotor.RunSpeed = speed / 4;
+				playerMotor.RunSpeed = speed / 4f;
 			}
 			if (Input.GetKeyUp(KeyCode.Mouse0))
 			{
