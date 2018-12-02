@@ -31,11 +31,16 @@ public class Arrow : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (rotate)
+        if (rotate && transform.parent == null)
         {
             var nextPosition = transform.position + (Vector3)rb.velocity * 100;
             var angle = Mathf.Atan2(nextPosition.y, nextPosition.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+        if(transform.parent)
+        {
+            if (!transform.parent.GetComponent<Prey>().alive) //Destroy on animal death
+                Destroy(gameObject);
         }
     }
 
@@ -51,6 +56,9 @@ public class Arrow : MonoBehaviour {
 		{
 			arrowGround.Play();
 		}
+        if(collision.gameObject.GetComponent<SpriteRenderer>())
+            GetComponent<SpriteRenderer>().sortingOrder = collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
+        transform.position += (Vector3)GetComponent<Rigidbody2D>().velocity * Time.deltaTime * 3;
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<Collider2D>().enabled = false;
         rotate = false;

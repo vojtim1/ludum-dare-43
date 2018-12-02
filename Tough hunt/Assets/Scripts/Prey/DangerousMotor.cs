@@ -5,14 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(MyCharacterController))]
 public class DangerousMotor : MonoBehaviour {
 
-    [SerializeField]
-    private float speed = 40.0f;
+    public bool agro = false;
+    public float agroTime = 10;
+    private float agroNow = 0;
 
     [SerializeField]
-    private float escapeDistance = 60.0f;
+    private float speed = 100.0f;
 
     [SerializeField]
-    private float attackDistance = 5f;
+    private float agroDistance = 10.0f;
+
+    [SerializeField]
+    private float attackDistance = 3f;
 
     [SerializeField]
     private Transform player;
@@ -30,11 +34,6 @@ public class DangerousMotor : MonoBehaviour {
     private float horizontalMove = 0f;
     private bool jump = false;
 
-    // AI CONTROLLS
-    bool isAttacking = false;
-    bool isRunning = false;
-    bool isWalking = false;
-
     Vector2 runningDirection = Vector3.zero;
 
     // IDLE
@@ -51,81 +50,55 @@ public class DangerousMotor : MonoBehaviour {
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(gameObject.transform.position, escapeDistance);
+        Gizmos.DrawWireSphere(gameObject.transform.position, agroDistance);
     }
 
     void Update()
     {
-        if (GetComponent<Prey>().alive)
+        if(GetComponent<Prey>().alive)
         {
-            if (DistanceFromPlayer() <= attackDistance)
+            horizontalMove = 0;
+            if (DistanceFromPlayer() <= agroDistance)
             {
-                isRunning = false;
-                isAttacking = true;
+                agro = true;
+                agroNow = agroTime;
             }
-            else isAttacking = false;
-            if (isRunning)
+            if(agro)
             {
-                if (DistanceFromPlayer() >= escapeDistance)
+                agroNow -= Time.deltaTime;
+                if (agroNow <= 0)
                 {
-                    runningDirection = Vector3.zero;
-                    isRunning = false;
+                    agro = false;
                 }
-                if (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * 3, 1 << 8).transform)
-                    jump = true;
-
-                horizontalMove = runningDirection.x * speed;
-            }
-            if (isAttacking)
-            {
-                horizontalMove = 0;
-                if (lastTimeAttacked + (1 / attacksPerSecond) <= Time.time)
+                if(DistanceFromPlayer() <= attackDistance)
                 {
-                    lastTimeAttacked = Time.time;
-                    GetComponent<Animator>().CrossFade("Attack", 0);
-                    player.SendMessage("TakeDamage", damage);
+                    Attack();
+                }
+                else
+                {
+                    runningDirection = GetRunningDirection(player.gameObject);
+                    horizontalMove = runningDirection.x * speed;
+                    if (obstacleAhead())
+                        jump = true;
                 }
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    Vector2 GetRunningDirection(GameObject lGameObject)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (collision.gameObject.transform.position.x > gameObject.transform.position.x)
-            {
-                runningDirection = Vector2.right;
-            }
-            else
-            {
-                runningDirection = Vector2.left;
-            }
-            isRunning = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (collision.gameObject.transform.position.x > gameObject.transform.position.x)
-            {
-                runningDirection = Vector2.right;
-            }
-            else
-            {
-                runningDirection = Vector2.left;
-            }
-            isRunning = true;
-        }
+        if (lGameObject.transform.position.x > gameObject.transform.position.x)
+            return Vector2.right;
+        else return Vector2.left;
     }
 
     void Attack()
     {
         if (lastTimeAttacked + (1 / attacksPerSecond) < Time.time)
         {
-            Debug.Log("Attack!");
             lastTimeAttacked = Time.time;
+            GetComponent<Animator>().CrossFade("Attack", 0);
+            player.SendMessage("TakeDamage", damage);
         }
     }
 
@@ -139,5 +112,16 @@ public class DangerousMotor : MonoBehaviour {
     float DistanceFromPlayer()
     {
         return Vector2.Distance(player.transform.position, transform.position);
+    }
+
+    void TakeDamage()
+    {
+        agro = true;
+        agroNow = agroTime;
+    }
+    bool obstacleAhead()
+    {
+        bool r = (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * 1.5f, 1 << 8).transform);
+        return r;
     }
 }

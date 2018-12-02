@@ -11,9 +11,6 @@ public class Prey : MonoBehaviour {
 
     public bool alive = true;
 
-    [SerializeField]
-    Collider2D colliderDisableOnDeath;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -48,8 +45,10 @@ public class Prey : MonoBehaviour {
         {
             print("Yes");
             if (Input.GetKeyDown(KeyCode.E))
+            {
                 print("Skinning " + gameObject.name + " for " + foodReward + " food!");
-            colliderDisableOnDeath.enabled = false;
+                Destroy(gameObject);
+            }
         }
     }
 }
