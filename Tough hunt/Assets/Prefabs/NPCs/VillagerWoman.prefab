@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1760273584854724}
+  m_RootGameObject: {fileID: 1986172320981860}
   m_IsPrefabAsset: 1
---- !u!1 &1760273584854724
+--- !u!1 &1986172320981860
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4720104781307934}
-  - component: {fileID: 212846283411280974}
-  - component: {fileID: 95694317233842900}
-  - component: {fileID: 61709345569353476}
-  - component: {fileID: 114634267391920394}
+  - component: {fileID: 4221213611658214}
+  - component: {fileID: 212897922255644950}
+  - component: {fileID: 95770183193680292}
+  - component: {fileID: 114785307754229058}
+  - component: {fileID: 61989385084929832}
   m_Layer: 0
-  m_Name: Knight
+  m_Name: VillagerWoman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4720104781307934
+--- !u!4 &4221213611658214
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760273584854724}
+  m_GameObject: {fileID: 1986172320981860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.887, y: -1.616, z: 0}
+  m_LocalPosition: {x: -55.217, y: -1.621, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61709345569353476
+--- !u!61 &61989385084929832
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760273584854724}
+  m_GameObject: {fileID: 1986172320981860}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -59,25 +59,25 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 1.36}
-    newSize: {x: 0.64, y: 1.36}
+    oldSize: {x: 0.75, y: 1.4}
+    newSize: {x: 0.15, y: 0.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 1.36}
+  m_Size: {x: 0.75, y: 1.35}
   m_EdgeRadius: 0
---- !u!95 &95694317233842900
+--- !u!95 &95770183193680292
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760273584854724}
+  m_GameObject: {fileID: 1986172320981860}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e172ec94a817c1441bb6edbe5e6cea61, type: 2}
+  m_Controller: {fileID: 9100000, guid: e24b251d55ebdf842bca2a6f47566781, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -86,36 +86,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114634267391920394
+--- !u!114 &114785307754229058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760273584854724}
+  m_GameObject: {fileID: 1986172320981860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d11c43fccfce4345a068bf9186f19b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cada3bc3d1073d4bb50ef11f747db7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - Good luck in the fight!
-  - '*Stares into the sky*'
-  - '*Grunts*'
+  - The hero!
+  - Sacrifice!
+  - Please would you have some spare food for me and my children?
   isStatic: 0
   standingStill: 0
   movementPoints:
-  - {x: -3.34, y: 0}
-  - {x: 3.87, y: 0}
+  - {x: -1.57, y: 0}
+  - {x: 1.57, y: 0}
   time: 0
-  stopTime: 5
+  stopTime: 2
   target: {x: 0, y: 0}
   animate: 1
---- !u!212 &212846283411280974
+--- !u!212 &212897922255644950
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760273584854724}
+  m_GameObject: {fileID: 1986172320981860}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -145,12 +145,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a4ab83c4784c2b84ea0626b934da59e7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f7f95eb9c6ae98e4192cc005438bf1af, type: 3}
+  m_Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.36}
+  m_Size: {x: 0.15, y: 0.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
