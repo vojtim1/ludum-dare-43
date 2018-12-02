@@ -6,11 +6,6 @@ using UnityEngine.UI;
 public class MessageBoard : MonoBehaviour {
 	public Text textField;
 
-	public void Start()
-	{
-		this.gameObject.SetActive(false);
-	}
-
 	public void DisplayText(string toDisplay)
 	{
 		this.gameObject.SetActive(true);
