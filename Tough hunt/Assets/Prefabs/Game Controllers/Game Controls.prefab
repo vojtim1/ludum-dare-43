@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 222485479371492620}
   - component: {fileID: 114718971918554720}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,7 +774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Grumpy wizards something something
+  m_Text: 
 --- !u!114 &114718971918554720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -854,6 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 114665244752949080}
+  titleField: {fileID: 114718971918554720}
 --- !u!114 &114916162223472118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1002,7 +1003,7 @@ RectTransform:
   m_LocalScale: {x: 0.10965, y: 0.10965, z: 0.10965}
   m_Children: []
   m_Father: {fileID: 224307568196026574}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1020,8 +1021,8 @@ RectTransform:
   m_LocalScale: {x: 2.9599, y: 2.9599, z: 2.9599}
   m_Children:
   - {fileID: 224666342710980310}
-  - {fileID: 224125104032416600}
   - {fileID: 224876399993223188}
+  - {fileID: 224125104032416600}
   m_Father: {fileID: 224783140547977470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1136,7 +1137,7 @@ RectTransform:
   m_LocalScale: {x: 0.10964898, y: 0.10964898, z: 0.10964898}
   m_Children: []
   m_Father: {fileID: 224307568196026574}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}

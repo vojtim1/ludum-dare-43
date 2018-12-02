@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class MessageBoard : MonoBehaviour {
 	public Text textField;
-
-	public void DisplayText(string toDisplay)
+	public Text titleField;
+	public void DisplayText(string title, string toDisplay)
 	{
 		this.gameObject.SetActive(true);
 		GameController.instance.PauseGame();
+		titleField.text = title;
 		textField.text = toDisplay;
 	}
 
