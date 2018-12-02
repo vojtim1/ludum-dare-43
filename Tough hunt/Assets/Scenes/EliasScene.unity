@@ -334,6 +334,39 @@ Prefab:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1671878017}
+    - target: {fileID: 4039376067560682, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000021318666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344160870841562, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.25823334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106805058418294, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.61201346
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550053173368780, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.7839919
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489138976461438, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000029425345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912502718437408, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.035903834
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912502718437408, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9993553
+      objectReference: {fileID: 0}
+    - target: {fileID: 114958042899915992, guid: 45200124a45580a4e8efd7f29a6ef619,
+        type: 2}
+      propertyPath: healthImage
+      value: 
+      objectReference: {fileID: 1240774064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45200124a45580a4e8efd7f29a6ef619, type: 2}
   m_IsPrefabAsset: 0
@@ -468,6 +501,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e8a9e2fe7d152f469f6ed418be3d101, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1240774064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114514116862914436, guid: 1c876da57ded31546a7fb0ab0a0bb308,
+    type: 2}
+  m_PrefabInternal: {fileID: 2054130861}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1671878017 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114210031902098876, guid: 1c876da57ded31546a7fb0ab0a0bb308,
@@ -2205,41 +2244,6 @@ Prefab:
     - target: {fileID: 4645699138838468, guid: 1c876da57ded31546a7fb0ab0a0bb308, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224876399993223188, guid: 1c876da57ded31546a7fb0ab0a0bb308,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00014496
-      objectReference: {fileID: 0}
-    - target: {fileID: 224876399993223188, guid: 1c876da57ded31546a7fb0ab0a0bb308,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -4.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 224876399993223188, guid: 1c876da57ded31546a7fb0ab0a0bb308,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224876399993223188, guid: 1c876da57ded31546a7fb0ab0a0bb308,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224876399993223188, guid: 1c876da57ded31546a7fb0ab0a0bb308,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 912
-      objectReference: {fileID: 0}
-    - target: {fileID: 224876399993223188, guid: 1c876da57ded31546a7fb0ab0a0bb308,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 74.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 114718971918554720, guid: 1c876da57ded31546a7fb0ab0a0bb308,
-        type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c876da57ded31546a7fb0ab0a0bb308, type: 2}
