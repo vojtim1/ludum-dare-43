@@ -19,10 +19,9 @@ public class CameraMovementControl : MonoBehaviour
 		Camera.main.orthographicSize = Mathf.Min(minZoom, maxZoom);
 	}
 
-	bool gamePaused = false;
 	void LateUpdate()
 	{
-		if (!gamePaused)
+		if (!GameController.instance.GamePaused)
 		{
 			if (player == null) player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
@@ -51,15 +50,5 @@ public class CameraMovementControl : MonoBehaviour
 				Camera.main.orthographicSize = Mathf.Min(Camera.main.orthographicSize + 1, maxZoom);
 			}
 		}
-	}
-
-	public void PauseGame()
-	{
-		gamePaused = true;
-	}
-
-	public void UnPauseGame()
-	{
-		gamePaused = false;
 	}
 }

@@ -11,6 +11,10 @@ public class Arrow : MonoBehaviour {
     Vector2 direction;
     bool rotate = true;
 
+	[SerializeField]
+	AudioSource arrowHit;
+	[SerializeField]
+	AudioSource arrowGround;
 
 	void Start () {
         spawnTime = Time.time;
@@ -41,7 +45,12 @@ public class Arrow : MonoBehaviour {
         {
             transform.SetParent(collision.transform);
             collision.gameObject.SendMessage("TakeDamage", 25);
+			arrowHit.Play();
         }
+		if(collision.gameObject.layer == 8)
+		{
+			arrowGround.Play();
+		}
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<Collider2D>().enabled = false;
         rotate = false;

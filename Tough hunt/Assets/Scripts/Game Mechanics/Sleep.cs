@@ -8,11 +8,11 @@ public class Sleep : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Player")
 		{
-			if (Input.GetKeyDown(KeyCode.E) && GameController.instance.CurrentGameTime > (GameController.instance.TotalDayTime / 2))
+			if (Input.GetKey(KeyCode.E) && GameController.instance.CurrentGameTime > (GameController.instance.TotalDayTime / 2))
 			{
 				GameController.instance.TimeSpeed = timeSpeedBoost;
 			}
-			if (Input.GetKeyUp(KeyCode.E) || GameController.instance.CurrentGameTime < (GameController.instance.TotalDayTime / 2))
+			else
 			{
 				GameController.instance.TimeSpeed = 1;
 			}

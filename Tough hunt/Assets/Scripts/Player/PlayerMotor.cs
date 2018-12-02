@@ -23,20 +23,6 @@ public class PlayerMotor : MonoBehaviour {
     private float horizontalMove = 0f;
     private bool jump = false;
 
-	private bool gamePaused = false;
-	public bool GamePaused
-	{
-		get
-		{
-			return gamePaused;
-		}
-
-		set
-		{
-			gamePaused = value;
-		}
-	}
-
 	void Awake()
     {
         controller = GetComponent<MyCharacterController>();
@@ -46,7 +32,7 @@ public class PlayerMotor : MonoBehaviour {
     void Update () {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (Input.GetButtonDown("Jump") && !gamePaused)
+        if (Input.GetButtonDown("Jump") && !GameController.instance.GamePaused)
         {
             jump = true;
         }
@@ -62,7 +48,7 @@ public class PlayerMotor : MonoBehaviour {
     }
 
     void FixedUpdate () {
-		if (!gamePaused)
+		if (!GameController.instance.GamePaused)
 		{
 			controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
 		}
