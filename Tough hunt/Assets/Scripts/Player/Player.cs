@@ -51,26 +51,30 @@ public class Player : MonoBehaviour
 
 	bool isHolding = false;
 
+	bool gamePaused = false;
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Mouse0))
+		if (!gamePaused)
 		{
-			holdingTime = 0;
-			isHolding = true;
-			playerMotor.RunSpeed = speed / 4;
-		}
-		if(Input.GetKeyUp(KeyCode.Mouse0))
-		{
-			isHolding = false;
-			Shoot(arrowDamage, holdingTime/holdingMaxTime);
-			playerMotor.RunSpeed = speed;
-		}
-		if(isHolding)
-		{
-			holdingTime += Time.deltaTime;
-			if (holdingTime >= holdingMaxTime)
-				holdingTime = holdingMaxTime;
-			holdIndicator.fillAmount = holdingTime / holdingMaxTime;
+			if (Input.GetKeyDown(KeyCode.Mouse0))
+			{
+				holdingTime = 0;
+				isHolding = true;
+				playerMotor.RunSpeed = speed / 4;
+			}
+			if (Input.GetKeyUp(KeyCode.Mouse0))
+			{
+				isHolding = false;
+				Shoot(arrowDamage, holdingTime / holdingMaxTime);
+				playerMotor.RunSpeed = speed;
+			}
+			if (isHolding)
+			{
+				holdingTime += Time.deltaTime;
+				if (holdingTime >= holdingMaxTime)
+					holdingTime = holdingMaxTime;
+				holdIndicator.fillAmount = holdingTime / holdingMaxTime;
+			}
 		}
 	}
 
@@ -112,5 +116,17 @@ public class Player : MonoBehaviour
 			arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
 			arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * arrowSpeed);
 		}
+	}
+
+	public void PauseGame()
+	{
+		gamePaused = true;
+		playerMotor.GamePaused = true;
+	}
+
+	public void UnPauseGame()
+	{
+		gamePaused = false;
+		playerMotor.GamePaused = false;
 	}
 }

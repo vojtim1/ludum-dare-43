@@ -152,41 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 61088573677544474, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 61088573677544474, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50963476422468426, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114373904497877050, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-        type: 2}
-      propertyPath: jumpForce
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 114096931560653070, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-        type: 2}
-      propertyPath: speed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 50963476422468426, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114941006410887700, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-        type: 2}
-      propertyPath: colliderDisableOnDeath
-      value: 
-      objectReference: {fileID: 1125467672}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5078eac90a8ec45b20b3ea90611c32, type: 2}
   m_IsPrefabAsset: 0
@@ -260,11 +225,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0886329b74c700409ffecae1bff8f73, type: 2}
   m_IsPrefabAsset: 0
---- !u!58 &1125467672 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 58824332735648248, guid: 4e5078eac90a8ec45b20b3ea90611c32,
-    type: 2}
-  m_PrefabInternal: {fileID: 34669441}
 --- !u!1 &1211578067
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,9 +555,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1875403085340178, guid: f95a6280ebe7494479aa85b3c1204b8d, type: 2}
-      propertyPath: m_Name
-      value: Doe
+    - target: {fileID: 58847731703632802, guid: f95a6280ebe7494479aa85b3c1204b8d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95a6280ebe7494479aa85b3c1204b8d, type: 2}

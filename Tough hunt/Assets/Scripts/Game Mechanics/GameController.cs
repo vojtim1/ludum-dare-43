@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour {
 	private GameObject player;
 	private Player playerScript;
 
+	public MessageBoard messagesboard;
+
 	void Awake()
 	{
 		if (instance == null)
@@ -71,20 +73,23 @@ public class GameController : MonoBehaviour {
 
 	private bool raidEvaluated;
 	void Update () {
-		currentGameTime += Time.deltaTime;
-		if(currentGameTime >= totalDayTime)
+		if (!gamePaused)
 		{
-			currentGameTime -= totalDayTime;
-			currentDay++;
-			raidEvaluated = false;
-			village.NewDay(currentDay);
-		}
-		if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
-		{
-			if(Math.Abs(player.transform.position.x) > distanceToAllowRaid)
+			currentGameTime += Time.deltaTime;
+			if (currentGameTime >= totalDayTime)
 			{
-				village.StartRaid();
-				raidEvaluated = true;
+				currentGameTime -= totalDayTime;
+				currentDay++;
+				raidEvaluated = false;
+				village.NewDay(currentDay);
+			}
+			if (Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
+			{
+				if (Math.Abs(player.transform.position.x) > distanceToAllowRaid)
+				{
+					village.StartRaid();
+					raidEvaluated = true;
+				}
 			}
 		}
 	}
@@ -109,6 +114,19 @@ public class GameController : MonoBehaviour {
 	public void RegainResources()
 	{
 		playerScript.RegainResources();
+	}
+
+	private bool gamePaused = false;
+	public void PauseGame()
+	{
+		gamePaused = true;
+		playerScript.PauseGame();
+	}
+
+	public void UnPauseGame()
+	{
+		gamePaused = false;
+		playerScript.UnPauseGame();
 	}
 
 	public void GameOver()

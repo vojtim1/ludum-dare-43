@@ -89,12 +89,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58824332735648248
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7, y: 2.19}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0.05
 --- !u!114 &114096931560653070
 MonoBehaviour:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ce1e973bf9bfa47a8d186755a1f8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
+  speed: 300
   escapeDistance: 9.9
   player: {fileID: 0}
   damage: 100
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSmoothing: 0.05
-  jumpForce: 400
+  jumpForce: 200
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1d3ce0243706446b52d3b2c02c16bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
+  foodReward: 5
+  colliderDisableOnDeath: {fileID: 58824332735648248}
 --- !u!212 &212479137571355894
 SpriteRenderer:
   m_ObjectHideFlags: 1
