@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	GameObject arrow;
 
+	[SerializeField]
+	AudioSource arrowShot;
+
 	void Awake()
 	{
 		if (instance == null)
@@ -52,16 +55,15 @@ public class Player : MonoBehaviour
 
 	bool isHolding = false;
 
-	bool gamePaused = false;
 	void Update()
 	{
-		if (!gamePaused)
+		if (!GameController.instance.GamePaused)
 		{
 			if (Input.GetKeyDown(KeyCode.Mouse0))
 			{
 				holdingTime = 0;
 				isHolding = true;
-				playerMotor.RunSpeed = speed / 4;
+				playerMotor.RunSpeed = speed / 4f;
 			}
 			if (Input.GetKeyUp(KeyCode.Mouse0))
 			{
@@ -81,11 +83,11 @@ public class Player : MonoBehaviour
 			}
             holdIndicator.fillAmount = holdingTime / holdingMaxTime;
             PullArmMovementIK.instance.SetPullMultiplier(holdingTime / holdingMaxTime);
-        }
-        if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x))
-            rootBone.transform.rotation = Quaternion.Euler(new Vector3(0,180,0));
-        else rootBone.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
+			if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x))
+				rootBone.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+			else rootBone.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+		}
     }
 
 	[SerializeField]
@@ -112,6 +114,9 @@ public class Player : MonoBehaviour
 		if(currentArrowCount > 0)
 		{
 			currentArrowCount--;
+
+			arrowShot.Play();
+
 			GameObject arrowInstance;
 			Vector3 projectileDirection = ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
 			projectileDirection.z = 0;
@@ -126,17 +131,5 @@ public class Player : MonoBehaviour
 			arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
 			arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * arrowSpeed);
 		}
-	}
-
-	public void PauseGame()
-	{
-		gamePaused = true;
-		playerMotor.GamePaused = true;
-	}
-
-	public void UnPauseGame()
-	{
-		gamePaused = false;
-		playerMotor.GamePaused = false;
 	}
 }

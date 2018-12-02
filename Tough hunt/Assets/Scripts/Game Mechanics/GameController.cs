@@ -49,7 +49,19 @@ public class GameController : MonoBehaviour {
 			timeSpeed = value;
 		}
 	}
+	private bool gamePaused = false;
+	public bool GamePaused
+	{
+		get
+		{
+			return gamePaused;
+		}
 
+		set
+		{
+			gamePaused = value;
+		}
+	}
 	private int currentDay;
 
 	private float distanceToAllowRaid;
@@ -139,19 +151,14 @@ public class GameController : MonoBehaviour {
 		playerScript.RegainResources();
 	}
 
-	private bool gamePaused = false;
 	public void PauseGame()
 	{
 		gamePaused = true;
-		playerScript.PauseGame();
-		Camera.main.gameObject.SendMessage("PauseGame");
 	}
 
 	public void UnPauseGame()
 	{
 		gamePaused = false;
-		playerScript.UnPauseGame();
-		Camera.main.gameObject.SendMessage("UnPauseGame");
 	}
 
 	public void GameOver()
