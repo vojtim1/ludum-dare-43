@@ -56,32 +56,35 @@ public class DangerousMotor : MonoBehaviour {
 
     void Update()
     {
-        if (DistanceFromPlayer() <= attackDistance)
+        if (GetComponent<Prey>().alive)
         {
-            isRunning = false;
-            isAttacking = true;
-        }
-        else isAttacking = false;
-        if (isRunning)
-        {
-            if (DistanceFromPlayer() >= escapeDistance)
+            if (DistanceFromPlayer() <= attackDistance)
             {
-                runningDirection = Vector3.zero;
                 isRunning = false;
+                isAttacking = true;
             }
-            if (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * 3, 1 << 8).transform)
-                jump = true;
-
-            horizontalMove = runningDirection.x * speed;
-        }
-        if(isAttacking)
-        {
-            horizontalMove = 0;
-            if(lastTimeAttacked + (1 / attacksPerSecond) <= Time.time)
+            else isAttacking = false;
+            if (isRunning)
             {
-                lastTimeAttacked = Time.time;
-                GetComponent<Animator>().CrossFade("Attack", 0);
-                player.SendMessage("TakeDamage", damage);
+                if (DistanceFromPlayer() >= escapeDistance)
+                {
+                    runningDirection = Vector3.zero;
+                    isRunning = false;
+                }
+                if (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * 3, 1 << 8).transform)
+                    jump = true;
+
+                horizontalMove = runningDirection.x * speed;
+            }
+            if (isAttacking)
+            {
+                horizontalMove = 0;
+                if (lastTimeAttacked + (1 / attacksPerSecond) <= Time.time)
+                {
+                    lastTimeAttacked = Time.time;
+                    GetComponent<Animator>().CrossFade("Attack", 0);
+                    player.SendMessage("TakeDamage", damage);
+                }
             }
         }
     }
