@@ -129,7 +129,18 @@ public class Player : MonoBehaviour
 				projectileDirection *= multiplier;
 
 			arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
+			arrowInstance.SendMessage("SetDamage", arrowDamage);
 			arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * arrowSpeed);
+		}
+	}
+
+	public void TakeDamage(float damage)
+	{
+		currentHealth -= damage;
+
+		if (currentHealth <= 0)
+		{
+			GameController.instance.GameOver("playerDead");
 		}
 	}
 }

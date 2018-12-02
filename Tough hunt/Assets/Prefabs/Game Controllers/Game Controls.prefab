@@ -463,9 +463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c111fe5f804cb864c983e956895335d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dailyFoodIncome: 0
-  foodToSustainRaid: 0
-  raidChance: 0
+  dailyFoodIncome: 10
+  foodToSustainRaid: 10
+  raidChance: 0.1
 --- !u!114 &114332611798243342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -478,8 +478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryingFood: 0
-  totalDayTime: 120
-  messagesboard: {fileID: 114362089805301840}
+  totalDayTime: 4.8
+  messageboard: {fileID: 114362089805301840}
   foodDisplay: {fileID: 1483931512905712}
 --- !u!114 &114362089805301840
 MonoBehaviour:
