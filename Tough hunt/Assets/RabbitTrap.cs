@@ -64,19 +64,33 @@ public class RabbitTrap : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (collision.gameObject.tag == "Player")
         {
-            if (state == TrapState.READY)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                settingUp = true;
-                time = 0;
+                if (state == TrapState.READY)
+                {
+                    settingUp = true;
+                    time = 0;
+                }
+                if (state == TrapState.TRIGGERED)
+                {
+                    print("Gathered!");
+                    state = TrapState.READY;
+                    time = 0;
+                    UpdateSprite();
+                }
             }
-            if (state == TrapState.TRIGGERED)
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (state == TrapState.READY && settingUp)
             {
-                print("Gathered!");
-                state = TrapState.READY;
+                settingUp = false;
                 time = 0;
-                UpdateSprite();
             }
         }
     }
