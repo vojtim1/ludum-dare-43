@@ -85,8 +85,8 @@ public class Player : MonoBehaviour
             PullArmMovementIK.instance.SetPullMultiplier(holdingTime / holdingMaxTime);
 
 			if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x))
-				rootBone.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-			else rootBone.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+				gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+			else gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 		}
     }
 

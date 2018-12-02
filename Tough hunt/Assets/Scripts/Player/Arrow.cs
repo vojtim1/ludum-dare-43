@@ -58,9 +58,10 @@ public class Arrow : MonoBehaviour {
 		}
         if(collision.gameObject.GetComponent<SpriteRenderer>())
             GetComponent<SpriteRenderer>().sortingOrder = collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
-        transform.position += (Vector3)GetComponent<Rigidbody2D>().velocity * Time.deltaTime * 3;
+        transform.position += (Vector3)GetComponent<Rigidbody2D>().velocity * Time.deltaTime * 2;
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<Collider2D>().enabled = false;
+        gameObject.tag = "Arrow";
         rotate = false;
     }
 }

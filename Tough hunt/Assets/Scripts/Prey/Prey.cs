@@ -9,6 +9,8 @@ public class Prey : MonoBehaviour {
     [SerializeField]
     private int foodReward = 5;
 
+    public Collider2D harvestTrigger;//Collider activated after death
+
     public bool alive = true;
 
 	// Use this for initialization
@@ -34,7 +36,10 @@ public class Prey : MonoBehaviour {
     void Die()
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        foreach (Collider2D col in GetComponents<Collider2D>())
+            col.enabled = false;
+        harvestTrigger.enabled = true;
+        harvestTrigger.isTrigger = true;
         alive = false;
         GetComponent<Animator>().CrossFade("Death", 0);
     }
