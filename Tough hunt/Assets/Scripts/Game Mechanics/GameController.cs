@@ -36,6 +36,20 @@ public class GameController : MonoBehaviour {
 			totalDayTime = value;
 		}*/
 	}
+	private float timeSpeed;
+	public float TimeSpeed
+	{
+		get
+		{
+			return timeSpeed;
+		}
+
+		set
+		{
+			timeSpeed = value;
+		}
+	}
+
 	private int currentDay;
 
 	private float distanceToAllowRaid;
@@ -45,6 +59,8 @@ public class GameController : MonoBehaviour {
 	private Player playerScript;
 
 	public MessageBoard messagesboard;
+
+	public GameObject foodDisplay;
 
 	void Awake()
 	{
@@ -60,6 +76,7 @@ public class GameController : MonoBehaviour {
 
 	void Start () {
 		currentGameTime = 0;
+		timeSpeed = 1;
 		currentDay = 0;
 
 		village = Village.instance;
@@ -78,7 +95,7 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		if (!gamePaused)
 		{
-			currentGameTime += Time.deltaTime;
+			currentGameTime += Time.deltaTime * timeSpeed;
 			if (currentGameTime >= totalDayTime)
 			{
 				currentGameTime -= totalDayTime;
@@ -101,17 +118,20 @@ public class GameController : MonoBehaviour {
 	{
 		playerScript.Boost(carryingFood);
 		carryingFood = 0;
+		foodDisplay.SendMessage("SetText", carryingFood);
 	}
 
 	public void SacrificeTheLoot()
 	{
 		village.AddFood(carryingFood);
 		carryingFood = 0;
+		foodDisplay.SendMessage("SetText", carryingFood);
 	}
 
 	public void AddFood(int amount)
 	{
 		this.carryingFood += amount;
+		foodDisplay.SendMessage("SetText", carryingFood);
 	}
 
 	public void RegainResources()

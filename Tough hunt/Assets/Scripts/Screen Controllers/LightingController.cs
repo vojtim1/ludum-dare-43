@@ -14,7 +14,7 @@ public class LightingController : MonoBehaviour {
 		float colorLevel = currentGameTime / totalDayTime;
 		if (currentGameTime > totalDayTime / 2)
 		{
-			colorLevel = 1 - colorLevel;
+			colorLevel = 0.5f - colorLevel;
 		}
 		colorLevel = Mathf.Sin(2 * Mathf.PI * colorLevel);
 		colorLevel = (colorLevel + 1) / 2;
