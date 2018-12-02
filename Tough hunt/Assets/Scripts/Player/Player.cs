@@ -28,8 +28,11 @@ public class Player : MonoBehaviour
 	float holdingTime = 0;
 	[SerializeField]
 	Image holdIndicator;
+
 	[SerializeField]
 	Text healthText;
+	[SerializeField]
+	Image healthImage;
 
 	[SerializeField]
 	GameObject arrow;
@@ -114,6 +117,7 @@ public class Player : MonoBehaviour
 		currentArrowCount = (int)Mathf.Round(maxArrowCount);
 
 		healthText.SendMessage("SetText", currentHealth);
+		healthImage.color = new Color(1,1,1, 1 - currentHealth / maxHealth);
 	}
 
 	void Shoot(float damage, float timeMultiplier)
@@ -145,7 +149,7 @@ public class Player : MonoBehaviour
 	{
 		currentHealth -= damage;
 		healthText.SendMessage("SetText", currentHealth);
-
+		healthImage.color = new Color(1, 1, 1, 1 - currentHealth / maxHealth);
 		if (currentHealth <= 0)
 		{
 			GameController.instance.GameOver("playerDead");
