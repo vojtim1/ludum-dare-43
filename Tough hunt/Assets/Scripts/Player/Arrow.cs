@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Arrow : MonoBehaviour {
 
-    // Use this for initialization
     float spawnTime;
     Rigidbody2D rb;
     Vector2 direction;
@@ -14,14 +13,15 @@ public class Arrow : MonoBehaviour {
 	[SerializeField]
 	AudioSource arrowHit;
 	[SerializeField]
-	AudioSource arrowGround;
+	private AudioClip hitGround;
+	[SerializeField]
+	private AudioClip hitMeat;
 
 	void Start () {
         spawnTime = Time.time;
         rb = GetComponent<Rigidbody2D>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
         if (Time.time > spawnTime + 10.0)
         {
@@ -56,11 +56,11 @@ public class Arrow : MonoBehaviour {
         {
             transform.SetParent(collision.transform);
             collision.gameObject.SendMessage("TakeDamage", damage);
-			arrowHit.Play();
+			arrowHit.PlayOneShot(hitMeat);
         }
 		if(collision.gameObject.layer == 8)
 		{
-			arrowGround.Play();
+			arrowHit.PlayOneShot(hitGround);
 		}
         if(collision.gameObject.GetComponent<SpriteRenderer>())
             GetComponent<SpriteRenderer>().sortingOrder = collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;

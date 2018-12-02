@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
 	private float currentHealth;
 	private int currentArrowCount;
 
-	float holdingMaxTime = 2;
+	[SerializeField]
+	float holdingMaxTime;
 	float holdingTime = 0;
 	[SerializeField]
 	Image holdIndicator;
@@ -102,7 +103,7 @@ public class Player : MonoBehaviour
 		arrowDamage += baseToAdd;
 		arrowSpeed += baseToAdd * 10f;
 		maxArrowCount += baseToAdd * 0.1f;
-		holdingMaxTime -= baseToAdd * 0.005f;
+		holdingMaxTime -= baseToAdd * 0.003f;
 
 		currentHealth = maxHealth;
 		healthText.SendMessage("SetText", currentHealth);
