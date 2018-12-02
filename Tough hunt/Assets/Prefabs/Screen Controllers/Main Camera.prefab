@@ -102,6 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraSpeed: 5
   horizontalBorder: 0.12
-  verticalBorder: 0.12
+  verticalBorder: 0.24
   maxZoom: 12
   minZoom: 12

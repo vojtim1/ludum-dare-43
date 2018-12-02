@@ -69,6 +69,9 @@ public class GameController : MonoBehaviour {
 		distanceToAllowRaid = Screen.width * 2;
 
 		raidEvaluated = false;
+
+		messagesboard.gameObject.SetActive(true);
+		messagesboard.DisplayText("Thou shan't.");
 	}
 
 	private bool raidEvaluated;
@@ -85,7 +88,7 @@ public class GameController : MonoBehaviour {
 			}
 			if (Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
 			{
-				if (Math.Abs(player.transform.position.x) > distanceToAllowRaid)
+				if (Math.Abs(player.transform.position.x - this.transform.position.x) > distanceToAllowRaid)
 				{
 					village.StartRaid();
 					raidEvaluated = true;
@@ -121,12 +124,14 @@ public class GameController : MonoBehaviour {
 	{
 		gamePaused = true;
 		playerScript.PauseGame();
+		Camera.main.gameObject.SendMessage("PauseGame");
 	}
 
 	public void UnPauseGame()
 	{
 		gamePaused = false;
 		playerScript.UnPauseGame();
+		Camera.main.gameObject.SendMessage("UnPauseGame");
 	}
 
 	public void GameOver()

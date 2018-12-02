@@ -64,9 +64,12 @@ public class Player : MonoBehaviour
 			}
 			if (Input.GetKeyUp(KeyCode.Mouse0))
 			{
-				isHolding = false;
-				Shoot(arrowDamage, holdingTime / holdingMaxTime);
-				playerMotor.RunSpeed = speed;
+				if (isHolding)
+				{
+					isHolding = false;
+					Shoot(arrowDamage, holdingTime / holdingMaxTime);
+					playerMotor.RunSpeed = speed;
+				}
 			}
 			if (isHolding)
 			{
