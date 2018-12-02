@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1875403085340178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8029256, y: -0.09, z: -0.001953125}
+  m_LocalPosition: {x: -32.49, y: 2.31, z: -0.001953125}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4592516122425620}
@@ -148,7 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   foodReward: 3
-  colliderDisableOnDeath: {fileID: 58847731703632802}
+  harvestTrigger: {fileID: 0}
+  alive: 1
 --- !u!114 &114348831143801766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54bb6d78eaa844489621e5e0523f943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotate: 1
+  animate: 0
   movementSmoothing: 0.05
   jumpForce: 220
   whatIsGround:
@@ -178,9 +181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4948bcf4410ff5341b766b5d24dca744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 600
-  escapeDistance: 10.2
+  speed: 200
+  fearDistance: 11.64
   player: {fileID: 0}
+  fear: 0
+  fearTime: 3
 --- !u!212 &212251695447471214
 SpriteRenderer:
   m_ObjectHideFlags: 1

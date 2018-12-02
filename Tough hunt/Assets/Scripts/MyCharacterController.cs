@@ -65,9 +65,9 @@ public class MyCharacterController : MonoBehaviour
             if (rigidbody2D.velocity.x != 0)
             {
                 if (rigidbody2D.velocity.x > 0.1f)
-                    GetComponent<SpriteRenderer>().flipX = false;
+                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 if (rigidbody2D.velocity.x < -0.1f)
-                    GetComponent<SpriteRenderer>().flipX = true;
+                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
             }
         }
 

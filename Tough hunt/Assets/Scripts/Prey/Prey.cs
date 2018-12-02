@@ -9,10 +9,9 @@ public class Prey : MonoBehaviour {
     [SerializeField]
     private int foodReward = 5;
 
-    public bool alive = true;
+    public Collider2D harvestTrigger;//Collider activated after death
 
-    [SerializeField]
-    Collider2D colliderDisableOnDeath;
+    public bool alive = true;
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +36,10 @@ public class Prey : MonoBehaviour {
     void Die()
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        foreach (Collider2D col in GetComponents<Collider2D>())
+            col.enabled = false;
+        harvestTrigger.enabled = true;
+        harvestTrigger.isTrigger = true;
         alive = false;
         GetComponent<Animator>().CrossFade("Death", 0);
     }
@@ -48,8 +50,10 @@ public class Prey : MonoBehaviour {
         {
             print("Yes");
             if (Input.GetKeyDown(KeyCode.E))
+            {
                 print("Skinning " + gameObject.name + " for " + foodReward + " food!");
-            colliderDisableOnDeath.enabled = false;
+                Destroy(gameObject);
+            }
         }
     }
 }
