@@ -48,7 +48,7 @@ public class Prey : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player" && !alive)
         {
-            //collision.gameObject.SendMessage("Say", "I might skin this animal...");
+            collision.gameObject.SendMessage("Say", "I might skin this animal...");
             if (Input.GetKey(KeyCode.E))
             {
                 GameController.instance.AddFood(foodReward);

@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  foodReward: 5
+  foodReward: 3
   harvestTrigger: {fileID: 61064070288682268}
   alive: 1
 --- !u!114 &114166369793043092
