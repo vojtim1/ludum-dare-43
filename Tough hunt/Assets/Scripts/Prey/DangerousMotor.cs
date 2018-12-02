@@ -12,6 +12,9 @@ public class DangerousMotor : MonoBehaviour {
     private float escapeDistance = 60.0f;
 
     [SerializeField]
+    private float attackDistance = 5f;
+
+    [SerializeField]
     private Transform player;
 
     [SerializeField]
@@ -26,7 +29,6 @@ public class DangerousMotor : MonoBehaviour {
     private MyCharacterController controller;
     private float horizontalMove = 0f;
     private bool jump = false;
-
 
     // AI CONTROLLS
     bool isAttacking = false;
@@ -54,9 +56,15 @@ public class DangerousMotor : MonoBehaviour {
 
     void Update()
     {
-        if (isAttacking && isRunning)
+        if (DistanceFromPlayer() <= attackDistance)
         {
-            if (Vector2.Distance(player.transform.position, transform.position) >= escapeDistance)
+            isRunning = false;
+            isAttacking = true;
+        }
+        else isAttacking = false;
+        if (isRunning)
+        {
+            if (DistanceFromPlayer() >= escapeDistance)
             {
                 runningDirection = Vector3.zero;
                 isRunning = false;
@@ -65,6 +73,16 @@ public class DangerousMotor : MonoBehaviour {
                 jump = true;
 
             horizontalMove = runningDirection.x * speed;
+        }
+        if(isAttacking)
+        {
+            horizontalMove = 0;
+            if(lastTimeAttacked + (1 / attacksPerSecond) <= Time.time)
+            {
+                lastTimeAttacked = Time.time;
+                GetComponent<Animator>().CrossFade("Attack", 0);
+                player.SendMessage("TakeDamage", damage);
+            }
         }
     }
 
@@ -81,7 +99,6 @@ public class DangerousMotor : MonoBehaviour {
                 runningDirection = Vector2.left;
             }
             isRunning = true;
-            isAttacking = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -96,8 +113,6 @@ public class DangerousMotor : MonoBehaviour {
             {
                 runningDirection = Vector2.left;
             }
-
-            isAttacking = true;
             isRunning = true;
         }
     }
@@ -116,5 +131,10 @@ public class DangerousMotor : MonoBehaviour {
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
+    }
+
+    float DistanceFromPlayer()
+    {
+        return Vector2.Distance(player.transform.position, transform.position);
     }
 }
