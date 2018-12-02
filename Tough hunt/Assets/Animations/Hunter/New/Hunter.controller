@@ -111,8 +111,8 @@ AnimatorState:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Walk 0
-  m_Speed: 1
+  m_Name: Walk_backwards
+  m_Speed: -1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
