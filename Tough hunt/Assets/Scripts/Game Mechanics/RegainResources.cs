@@ -7,6 +7,7 @@ public class RegainResources : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Player")
 		{
+			GetComponent<AudioSource>().Play();
 			GameController.instance.RegainResources();
 		}
 	}
