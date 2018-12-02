@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 	float holdingTime = 0;
 	[SerializeField]
 	Image holdIndicator;
+	[SerializeField]
+	Text healthText;
 
 	[SerializeField]
 	GameObject arrow;
@@ -101,12 +103,17 @@ public class Player : MonoBehaviour
 		arrowSpeed += baseToAdd * 10f;
 		maxArrowCount += baseToAdd * 0.1f;
 		holdingMaxTime -= baseToAdd * 0.005f;
+
+		currentHealth = maxHealth;
+		healthText.SendMessage("SetText", currentHealth);
 	}
 
 	public void RegainResources()
 	{
 		currentHealth = maxHealth;
 		currentArrowCount = (int)Mathf.Round(maxArrowCount);
+
+		healthText.SendMessage("SetText", currentHealth);
 	}
 
 	void Shoot(float damage, float timeMultiplier)
@@ -129,7 +136,19 @@ public class Player : MonoBehaviour
 				projectileDirection *= multiplier;
 
 			arrowInstance = Instantiate(arrow, transform.position + projectileDirection, Quaternion.Euler(Vector3.zero));
+			arrowInstance.SendMessage("SetDamage", arrowDamage);
 			arrowInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * arrowSpeed);
+		}
+	}
+
+	public void TakeDamage(float damage)
+	{
+		currentHealth -= damage;
+		healthText.SendMessage("SetText", currentHealth);
+
+		if (currentHealth <= 0)
+		{
+			GameController.instance.GameOver("playerDead");
 		}
 	}
 }

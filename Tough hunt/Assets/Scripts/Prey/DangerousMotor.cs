@@ -18,7 +18,6 @@ public class DangerousMotor : MonoBehaviour {
     [SerializeField]
     private float attackDistance = 3f;
 
-    [SerializeField]
     private Transform player;
 
     [SerializeField]
@@ -98,7 +97,7 @@ public class DangerousMotor : MonoBehaviour {
         {
             lastTimeAttacked = Time.time;
             GetComponent<Animator>().CrossFade("Attack", 0);
-            player.SendMessage("TakeDamage", damage);
+            Player.instance.SendMessage("TakeDamage", damage);
         }
     }
 

@@ -48,10 +48,10 @@ public class Prey : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player" && !alive)
         {
-            print("Yes");
-            if (Input.GetKeyDown(KeyCode.E))
+            collision.gameObject.SendMessage("Say", "I might skin this animal...");
+            if (Input.GetKey(KeyCode.E))
             {
-                print("Skinning " + gameObject.name + " for " + foodReward + " food!");
+                GameController.instance.AddFood(foodReward);
                 Destroy(gameObject);
             }
         }

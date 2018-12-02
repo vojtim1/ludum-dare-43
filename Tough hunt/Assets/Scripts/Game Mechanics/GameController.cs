@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour {
 	private GameObject player;
 	private Player playerScript;
 
-	public MessageBoard messagesboard;
+	public MessageBoard messageboard;
 
 	public GameObject foodDisplay;
 
@@ -99,8 +99,8 @@ public class GameController : MonoBehaviour {
 
 		raidEvaluated = false;
 
-		messagesboard.gameObject.SetActive(true);
-		messagesboard.DisplayText("Thou shan't.");
+		messageboard.gameObject.SetActive(true);
+		messageboard.DisplayText("Thou shan't.");
 	}
 
 	private bool raidEvaluated;
@@ -113,13 +113,13 @@ public class GameController : MonoBehaviour {
 				currentGameTime -= totalDayTime;
 				currentDay++;
 				raidEvaluated = false;
-				village.NewDay(currentDay);
+				village.NewDay();
 			}
 			if (Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
 			{
-				if (Math.Abs(player.transform.position.x - this.transform.position.x) > distanceToAllowRaid)
+				//if (Math.Abs(player.transform.position.x - this.transform.position.x) > distanceToAllowRaid)
 				{
-					village.StartRaid();
+					village.StartRaid(currentDay);
 					raidEvaluated = true;
 				}
 			}
@@ -161,8 +161,20 @@ public class GameController : MonoBehaviour {
 		gamePaused = false;
 	}
 
-	public void GameOver()
+	public void GameOver(string deathType)
 	{
-		Debug.Log("The village was raided!");
+		PauseGame();
+		messageboard.gameObject.SetActive(true);
+		// TODO: Replace MessageBoard with GameOver screen
+		// TODO: Use Enum instead of string deathType
+		switch (deathType)
+		{
+			case "playerDead":
+				messageboard.DisplayText("You died. The game is over.");
+				break;
+			case "villageRaided":
+				messageboard.DisplayText("The village was raided. The game is over.");
+				break;
+		}
 	}
 }

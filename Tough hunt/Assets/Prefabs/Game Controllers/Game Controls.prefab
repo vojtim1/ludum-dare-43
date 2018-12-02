@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c111fe5f804cb864c983e956895335d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   dailyFoodIncome: 0
   foodToSustainRaid: 0
   raidChance: 0
@@ -516,6 +517,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Grumpy wizards something something
+=======
+  dailyFoodIncome: 10
+  foodToSustainRaid: 10
+  raidChance: 0.1
+>>>>>>> 3948a77942e62c742cd38b3f717ccab4aa0bada8
 --- !u!114 &114332611798243342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,8 +534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryingFood: 0
-  totalDayTime: 120
-  messagesboard: {fileID: 114362089805301840}
+  totalDayTime: 480
+  messageboard: {fileID: 114362089805301840}
   foodDisplay: {fileID: 1483931512905712}
 --- !u!114 &114362089805301840
 MonoBehaviour:
