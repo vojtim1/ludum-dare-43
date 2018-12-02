@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 	public static Player instance;
 
 	public PlayerMotor playerMotor;
+    public GameObject rootBone;
 
 	[SerializeField]
 	float maxHealth;
@@ -66,20 +67,26 @@ public class Player : MonoBehaviour
 			{
 				if (isHolding)
 				{
-					isHolding = false;
 					Shoot(arrowDamage, holdingTime / holdingMaxTime);
 					playerMotor.RunSpeed = speed;
-				}
+                    holdingTime = 0;
+                    isHolding = false;
+                }
 			}
 			if (isHolding)
 			{
 				holdingTime += Time.deltaTime;
 				if (holdingTime >= holdingMaxTime)
 					holdingTime = holdingMaxTime;
-				holdIndicator.fillAmount = holdingTime / holdingMaxTime;
 			}
-		}
-	}
+            holdIndicator.fillAmount = holdingTime / holdingMaxTime;
+            PullArmMovementIK.instance.SetPullMultiplier(holdingTime / holdingMaxTime);
+        }
+        if ((Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x))
+            rootBone.transform.rotation = Quaternion.Euler(new Vector3(0,180,0));
+        else rootBone.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+    }
 
 	[SerializeField]
 	private int boostModifier;
