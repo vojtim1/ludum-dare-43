@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MyCharacterController : MonoBehaviour
 {
-
+    public bool rotate = true;
+    public bool animate = false;
     [Range(0, .3f)]
     [SerializeField]
     private float movementSmoothing = .05f;
@@ -56,12 +57,29 @@ public class MyCharacterController : MonoBehaviour
         Vector3 targetVelocity = new Vector2(move, rigidbody2D.velocity.y);
         rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-        if(rigidbody2D.velocity.x != 0)
+        if (rotate)
         {
-            if (rigidbody2D.velocity.x > 0.1f)
-                GetComponent<SpriteRenderer>().flipX = false;
-            if (rigidbody2D.velocity.x < -0.1f)
-                GetComponent<SpriteRenderer>().flipX = true;
+            if (rigidbody2D.velocity.x != 0)
+            {
+                if (rigidbody2D.velocity.x > 0.1f)
+                    GetComponent<SpriteRenderer>().flipX = false;
+                if (rigidbody2D.velocity.x < -0.1f)
+                    GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
+
+        if(animate)
+        {
+            Animator animator = GetComponent<Animator>();
+            if (rigidbody2D.velocity.magnitude > 0.1f)
+            {
+                //if (rigidbody2D.velocity.x > 0.1f)
+                //{
+                animator.CrossFade("Walk", 0);
+                //}
+                //else animator.CrossFade("Walk_backwards", 0);
+            }
+            else animator.CrossFade("Idle", 0);
         }
            
 
