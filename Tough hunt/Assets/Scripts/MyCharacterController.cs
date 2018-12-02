@@ -78,11 +78,18 @@ public class MyCharacterController : MonoBehaviour
             {
                 if (rigidbody2D.velocity.magnitude > 0.1f)
                 {
-                    //if (rigidbody2D.velocity.x > 0.1f)
-                    //{
-                    animator.CrossFade("Walk", 0);
-                    //}
-                    //else animator.CrossFade("Walk_backwards", 0);
+                    if(gameObject.tag != "Player")
+                    {
+                        animator.CrossFade("Walk", 0);
+                    }
+                    else
+                    {
+                        if(MovesAwayFromCursor())
+                        {
+                            animator.CrossFade("Walk_backwards", 0);
+                        }
+                        else animator.CrossFade("Walk", 0);
+                    }
                 }
                 else animator.CrossFade("Idle", 0);
             }
@@ -92,6 +99,27 @@ public class MyCharacterController : MonoBehaviour
         if (grounded && jump)
         {
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+        }
+    }
+
+    bool MovesAwayFromCursor()
+    {
+        Vector3 cursorInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (transform.position.x < cursorInWorld.x)
+        {
+            if (rigidbody2D.velocity.x > 0.1f)
+            {
+                return false;
+            }
+            else return true;
+        }
+        else
+        {
+            if (rigidbody2D.velocity.x < -0.1f)
+            {
+                return false;
+            }
+            else return true;
         }
     }
 }
