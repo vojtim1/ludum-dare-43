@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
 	private float currentHealth;
 	private int currentArrowCount;
 
-	float holdingMaxTime = 2;
+	[SerializeField]
+	float holdingMaxTime;
 	float holdingTime = 0;
 	[SerializeField]
 	Image holdIndicator;
