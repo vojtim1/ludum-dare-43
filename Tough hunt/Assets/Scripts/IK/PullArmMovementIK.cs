@@ -30,7 +30,6 @@ public class PullArmMovementIK : MonoBehaviour {
         if (targetDirection.magnitude != maxMagnitude)
             targetDirection *= multiplier;
         transform.position = center.transform.position + targetDirection;
-        print(targetDirection);
     }
 
     public void SetPullMultiplier(float p)

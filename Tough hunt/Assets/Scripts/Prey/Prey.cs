@@ -9,7 +9,7 @@ public class Prey : MonoBehaviour {
     [SerializeField]
     private int foodReward = 5;
 
-    bool alive = true;
+    public bool alive = true;
 
     [SerializeField]
     Collider2D colliderDisableOnDeath;
@@ -38,8 +38,8 @@ public class Prey : MonoBehaviour {
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         GetComponent<BoxCollider2D>().isTrigger = true;
-        GetComponent<SpriteRenderer>().flipY = true;
         alive = false;
+        GetComponent<Animator>().CrossFade("Death", 0);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

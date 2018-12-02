@@ -54,6 +54,9 @@ public class MyCharacterController : MonoBehaviour
 
     public void Move(float move, bool jump)
     {
+        if (GetComponent<Prey>())
+            if (!GetComponent<Prey>().alive)
+                return;
         Vector3 targetVelocity = new Vector2(move, rigidbody2D.velocity.y);
         rigidbody2D.velocity = Vector3.SmoothDamp(rigidbody2D.velocity, targetVelocity, ref velocity, movementSmoothing);
 
