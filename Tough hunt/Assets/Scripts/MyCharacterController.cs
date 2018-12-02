@@ -74,15 +74,18 @@ public class MyCharacterController : MonoBehaviour
         if(animate)
         {
             Animator animator = GetComponent<Animator>();
-            if (rigidbody2D.velocity.magnitude > 0.1f)
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
-                //if (rigidbody2D.velocity.x > 0.1f)
-                //{
-                animator.CrossFade("Walk", 0);
-                //}
-                //else animator.CrossFade("Walk_backwards", 0);
+                if (rigidbody2D.velocity.magnitude > 0.1f)
+                {
+                    //if (rigidbody2D.velocity.x > 0.1f)
+                    //{
+                    animator.CrossFade("Walk", 0);
+                    //}
+                    //else animator.CrossFade("Walk_backwards", 0);
+                }
+                else animator.CrossFade("Idle", 0);
             }
-            else animator.CrossFade("Idle", 0);
         }
            
 

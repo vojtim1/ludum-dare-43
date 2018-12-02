@@ -88,7 +88,7 @@ public class RabbitTrap : MonoBehaviour {
     }
     private bool TickEvent()
     {
-        float random = Random.Range(0,1);
+        float random = Random.Range(0f,1f);
         if (random > triggerChance)
             return false;
         else return true;
