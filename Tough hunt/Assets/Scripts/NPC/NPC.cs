@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour {
     private float time;
     public float stopTime;
     public Vector2 target; //Where does the NPC want to go -> inside bounds
+    public float bubbleTime; //For how long should the bubble appear?
 
     [Header("Animations")]
     public bool animate;
@@ -126,7 +127,7 @@ public class NPC : MonoBehaviour {
 
     protected virtual void TalkToHero()
     {
-        print(dialogues[Random.Range(0, dialogues.Count)]);
+        TextBubble.instance.Say(dialogues[Random.Range(0, dialogues.Count)], gameObject, bubbleTime);
     }
     protected virtual void Interact() { }
 }
