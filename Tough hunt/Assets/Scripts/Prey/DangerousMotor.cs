@@ -84,7 +84,25 @@ public class DangerousMotor : MonoBehaviour {
         }
     }
 
-    Vector2 GetRunningDirection(GameObject lGameObject)
+	[SerializeField]
+	float nightBoost;
+	public void NightBoost()
+	{
+		speed = speed * nightBoost;
+		agroDistance = agroDistance * nightBoost;
+		damage = damage * nightBoost;
+		attacksPerSecond = attacksPerSecond * nightBoost;
+	}
+
+	public void DayNerf()
+	{
+		speed = speed / nightBoost;
+		agroDistance = agroDistance / nightBoost;
+		damage = damage / nightBoost;
+		attacksPerSecond = attacksPerSecond / nightBoost;
+	}
+
+	Vector2 GetRunningDirection(GameObject lGameObject)
     {
         if (lGameObject.transform.position.x > gameObject.transform.position.x)
             return Vector2.right;

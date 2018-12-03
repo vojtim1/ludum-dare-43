@@ -1019,6 +1019,7 @@ MonoBehaviour:
   foodReward: 5
   harvestTrigger: {fileID: 70606219038850272}
   alive: 1
+  nightBoost: 5
 --- !u!114 &114166369793043092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1064,7 +1065,7 @@ MonoBehaviour:
   rotate: 1
   animate: 1
   movementSmoothing: 0.05
-  jumpForce: 500
+  jumpForce: 250
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -1196,6 +1197,7 @@ MonoBehaviour:
   jumpDistance: 1
   fear: 0
   fearTime: 3
+  nightBoost: 2
 --- !u!114 &114906966956658758
 MonoBehaviour:
   m_ObjectHideFlags: 1

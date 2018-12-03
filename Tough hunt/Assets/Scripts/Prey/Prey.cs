@@ -25,7 +25,19 @@ public class Prey : MonoBehaviour {
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
-    void TakeDamage(float damage)
+	[SerializeField]
+	float nightBoost;
+	public void NightBoost()
+	{
+		health = health * nightBoost;
+	}
+
+	public void DayNerf()
+	{
+		health = health / nightBoost;
+	}
+
+	void TakeDamage(float damage)
     {
         health -= damage;
 

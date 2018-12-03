@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114317362829409340}
   - component: {fileID: 82997028400178876}
   m_Layer: 0
-  m_Name: Village
+  m_Name: Village Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryingFood: 0
-  totalDayTime: 480
-  timeSpeedBoost: 20
+  totalDayTime: 240
+  timeSpeedBoost: 30
   messageboard: {fileID: 0}
   foodDisplay: {fileID: 0}
 --- !u!114 &114672590282915724
