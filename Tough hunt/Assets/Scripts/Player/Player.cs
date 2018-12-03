@@ -28,8 +28,6 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	float holdingMaxTime;
 	float holdingTime = 0;
-	[SerializeField]
-	Image holdIndicator;
 
 	[SerializeField]
 	Text healthText;
@@ -89,7 +87,6 @@ public class Player : MonoBehaviour
 				if (holdingTime >= holdingMaxTime)
 					holdingTime = holdingMaxTime;
 			}
-            holdIndicator.fillAmount = holdingTime / holdingMaxTime;
             PullArmMovementIK.instance.SetPullMultiplier(holdingTime / holdingMaxTime);
 
             if(Mathf.Abs(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x) > 0.5f)
