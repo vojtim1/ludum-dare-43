@@ -89,6 +89,7 @@ public class DangerousMotor : MonoBehaviour {
 	public void NightBoost()
 	{
 		speed = speed * nightBoost;
+		Debug.Log(speed);
 		agroDistance = agroDistance * nightBoost;
 		damage = damage * nightBoost;
 	}
@@ -98,6 +99,7 @@ public class DangerousMotor : MonoBehaviour {
 	public void NewDayBoost(int dayNumber)
 	{
 		speed = speed * (1 + newDayBoost * dayNumber);
+		Debug.Log(speed);
 		damage = damage * (1 + newDayBoost * dayNumber);
 		attacksPerSecond = attacksPerSecond * (1 + newDayBoost * dayNumber);
 	}
