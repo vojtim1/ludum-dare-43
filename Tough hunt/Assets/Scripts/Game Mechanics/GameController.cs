@@ -36,17 +36,19 @@ public class GameController : MonoBehaviour {
 			totalDayTime = value;
 		}*/
 	}
-	private float timeSpeed;
-	public float TimeSpeed
+	[SerializeField]
+	private float timeSpeedBoost;
+	private bool skippingTime;
+	public bool SkippingTime
 	{
 		get
 		{
-			return timeSpeed;
+			return skippingTime;
 		}
 
 		set
 		{
-			timeSpeed = value;
+			skippingTime = value;
 		}
 	}
 	private bool gamePaused = false;
@@ -62,7 +64,9 @@ public class GameController : MonoBehaviour {
 			gamePaused = value;
 		}
 	}
+
 	private int currentDay;
+
 
 	private float distanceToAllowRaid;
 
@@ -88,7 +92,6 @@ public class GameController : MonoBehaviour {
 
 	void Start () {
 		currentGameTime = 0;
-		timeSpeed = 1;
 		currentDay = 0;
 
 		village = Village.instance;
@@ -99,6 +102,7 @@ public class GameController : MonoBehaviour {
 
 		raidEvaluated = false;
 
+		foodDisplay.SendMessage("SetText", carryingFood);
 		messageboard.DisplayText("Welcome to the game.","Welcome text.", true);
 	}
 
@@ -106,21 +110,32 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		if (!gamePaused)
 		{
-			currentGameTime += Time.deltaTime * timeSpeed;
-			if (currentGameTime >= totalDayTime)
-			{
-				currentGameTime -= totalDayTime;
-				currentDay++;
-				raidEvaluated = false;
-				village.NewDay();
-			}
+			currentGameTime += Time.deltaTime;
 			if (Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
 			{
 				// TODO: add evaluation only if player is far enough
 				village.StartRaid(currentDay);
 				raidEvaluated = true;
 			}
+		} else if (skippingTime)
+		{
+			currentGameTime += Time.deltaTime * timeSpeedBoost;
 		}
+		if (currentGameTime >= totalDayTime)
+		{
+			currentGameTime -= totalDayTime;
+			currentDay++;
+			raidEvaluated = false;
+			village.NewDay();
+			skippingTime = false;
+			UnPauseGame();
+		}
+	}
+
+	public void SkipTime()
+	{
+		PauseGame();
+		skippingTime = true;
 	}
 
 	public void KeepTheLoot()

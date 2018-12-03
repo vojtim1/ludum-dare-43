@@ -8,7 +8,7 @@ public class NPC : MonoBehaviour {
     public bool isStatic;
     public bool standingStill; //For walking, false = walking, true = stop
     public Vector2[] movementPoints = new Vector2[2];
-    public float time;
+    private float time;
     public float stopTime;
     public Vector2 target; //Where does the NPC want to go -> inside bounds
 

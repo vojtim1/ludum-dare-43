@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4943046141849448}
   - component: {fileID: 212937897864651428}
   - component: {fileID: 95008546582017238}
-  - component: {fileID: 114308356786212734}
+  - component: {fileID: 114076445515906150}
   - component: {fileID: 61600077110482376}
   - component: {fileID: 82943388338556926}
   - component: {fileID: 114856672985304610}
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201382053519920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.186, y: -1.351, z: 0}
+  m_LocalPosition: {x: -6.69, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -183,7 +183,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114308356786212734
+--- !u!114 &114076445515906150
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201382053519920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d11c43fccfce4345a068bf9186f19b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 93e783f1527bb7b43906504d6ad6c9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues: []
@@ -200,10 +200,10 @@ MonoBehaviour:
   movementPoints:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
-  time: 0
   stopTime: 0
   target: {x: 0, y: 0}
   animate: 0
+  secondsBetweenInteractions: 10
 --- !u!114 &114856672985304610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +274,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: eaab9343a6bfb0242b93cc21cbe2eb8c, type: 3}
   m_Color: {r: 0.8392157, g: 0.8392157, b: 0.8392157, a: 1}
   m_FlipX: 0

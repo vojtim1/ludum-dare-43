@@ -193,5 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carryingFood: 0
   totalDayTime: 480
+  timeSpeedBoost: 20
   messageboard: {fileID: 0}
   foodDisplay: {fileID: 0}
