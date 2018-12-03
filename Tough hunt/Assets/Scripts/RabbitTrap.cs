@@ -53,7 +53,7 @@ public class RabbitTrap : MonoBehaviour {
         {
             if (state == TrapState.READY)
             {
-                print("Press E to set up a hare trap.");
+                TextBubble.instance.Say("Hmmm a hare hole...\nI might set up a trap here!", collision.gameObject, 2);
                 time = 0;
             }
             if(state == TrapState.TRIGGERED)
