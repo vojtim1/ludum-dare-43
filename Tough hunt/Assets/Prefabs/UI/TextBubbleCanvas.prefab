@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 223010523914030524}
   - component: {fileID: 114333187027033614}
   - component: {fileID: 114349851230380540}
+  - component: {fileID: 114648528908737222}
+  - component: {fileID: 114559244397961224}
   m_Layer: 0
   m_Name: TextBubbleCanvas
   m_TagString: Untagged
@@ -181,6 +183,31 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114559244397961224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622928057529472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d965ba2237c5aa040be0b6a74a293ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+--- !u!114 &114648528908737222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622928057529472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091c9378cc897a54693884b01a9947e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0.3}
+  follow: {fileID: 0}
 --- !u!114 &114764708082233526
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -240,6 +240,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   stopTime: 0
   target: {x: 0, y: 0}
+  bubbleTime: 2
   animate: 0
   secondsBetweenInteractions: 10
 --- !u!212 &212631007633798778

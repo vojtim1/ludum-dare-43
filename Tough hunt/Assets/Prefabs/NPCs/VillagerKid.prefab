@@ -204,6 +204,7 @@ MonoBehaviour:
   - {x: 3.9, y: 0}
   stopTime: 0.3
   target: {x: 0, y: 0}
+  bubbleTime: 1
   animate: 1
 --- !u!114 &114360327269332714
 MonoBehaviour:

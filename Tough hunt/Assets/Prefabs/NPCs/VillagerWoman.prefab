@@ -239,9 +239,9 @@ MonoBehaviour:
   movementPoints:
   - {x: -1.57, y: 0}
   - {x: 1.57, y: 0}
-  time: 0
   stopTime: 2
   target: {x: 0, y: 0}
+  bubbleTime: 1
   animate: 1
 --- !u!212 &212897922255644950
 SpriteRenderer:

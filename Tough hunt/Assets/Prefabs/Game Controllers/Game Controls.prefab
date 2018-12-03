@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4702652405738682}
   - component: {fileID: 114375183310609496}
+  - component: {fileID: 114672590282915724}
   m_Layer: 0
   m_Name: Game Controls
   m_TagString: GameController
@@ -196,3 +197,15 @@ MonoBehaviour:
   timeSpeedBoost: 20
   messageboard: {fileID: 0}
   foodDisplay: {fileID: 0}
+--- !u!114 &114672590282915724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630341703242604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0d9e73ea433044790d323566ca4002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1622928057529472, guid: 5c30100fe880f8b49bed1279033b870a, type: 2}
