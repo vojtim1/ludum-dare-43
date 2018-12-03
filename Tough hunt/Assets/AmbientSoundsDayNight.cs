@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AmbientSoundsDayNight : MonoBehaviour {
     public AudioClip dayClip;
+    [Range(0,1)]
+    public float dayVolume = 1;
     public AudioClip nightClip;
+    [Range(0, 1)]
+    public float nightVolume = 1;
 
     private bool day = true;
     private AudioSource audioSource;
@@ -20,6 +24,12 @@ public class AmbientSoundsDayNight : MonoBehaviour {
             ChangeClip();
         else if (GameController.instance.CurrentGameTime < GameController.instance.TotalDayTime / 2 && !day)
             ChangeClip();
+        //if (GameController.instance.CurrentGameTime + 2 > GameController.instance.TotalDayTime / 2 || GameController.instance.CurrentGameTime + 2 > GameController.instance.TotalDayTime)
+        //{
+        //    StopCoroutine(FadeOut());
+        //    StopCoroutine(FadeIn());
+        //    StartCoroutine(FadeOut());
+        //}
     }
 
     private void ChangeClip()
@@ -36,4 +46,26 @@ public class AmbientSoundsDayNight : MonoBehaviour {
         }
         audioSource.Play();
     }
+
+    //IEnumerator FadeOut()
+    //{
+    //    for (float f = audioSource.volume; f > 0; f -= .5f * Time.deltaTime)
+    //    {
+    //        audioSource.volume = f;
+    //        yield return null;
+    //    }
+
+    //    StartCoroutine(FadeIn());
+    //    StopCoroutine(FadeOut());
+    //}
+
+    //IEnumerator FadeIn()
+    //{
+    //    for (float f = audioSource.volume; audioSource.volume < 1; f += .5f * Time.deltaTime)
+    //    {
+    //        audioSource.volume = f;
+    //        yield return null;
+    //    }
+    //    StopCoroutine(FadeIn());
+    //}
 }

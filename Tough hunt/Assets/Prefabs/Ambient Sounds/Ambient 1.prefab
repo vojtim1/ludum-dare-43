@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1922046850974834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.98, y: 7.42, z: -0.07392402}
+  m_LocalPosition: {x: -66.46, y: 1.59, z: -0.07392402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,7 +59,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 0.5218239
   MaxDistance: 20.254292
   Pan2D: 0
@@ -148,4 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayClip: {fileID: 8300000, guid: a4a995e6e815d3d4786f6dc6f29c9502, type: 3}
+  dayVolume: 1
   nightClip: {fileID: 8300000, guid: 968d46ada37f0ad46929d7d37c7b2b79, type: 3}
+  nightVolume: 0.15

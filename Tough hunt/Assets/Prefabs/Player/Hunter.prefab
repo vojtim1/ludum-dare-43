@@ -333,7 +333,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468749107095968}
-  m_LocalRotation: {x: 0, y: 0, z: -0.00000006229287, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.000000021318666, w: 1}
   m_LocalPosition: {x: 0.09821282, y: 0.00000015188047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -373,7 +373,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667898446442902}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6120135, w: 0.7908473}
+  m_LocalRotation: {x: 0, y: 0, z: -0.61201346, w: 0.7908474}
   m_LocalPosition: {x: 0.15643144, y: -0.08292907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -401,7 +401,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566773738287990}
-  m_LocalRotation: {x: -0, y: -0, z: -0.2582332, w: 0.96608263}
+  m_LocalRotation: {x: -0, y: -0, z: -0.25823334, w: 0.9660826}
   m_LocalPosition: {x: 0.273, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -427,7 +427,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316491319503178}
-  m_LocalRotation: {x: 0, y: 0, z: 0.00000019741054, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0000000037247272, w: 1}
   m_LocalPosition: {x: 0.16667217, y: -0.00000006390442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -456,7 +456,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225004360332602}
-  m_LocalRotation: {x: 0, y: 0, z: -0.78399205, w: 0.62077093}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7839918, w: 0.62077117}
   m_LocalPosition: {x: 0.1554152, y: -0.038602293, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -538,7 +538,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398815671160672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.12, y: -0.92, z: 0}
+  m_LocalPosition: {x: -11.58, y: -0.56, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4632449639094622}
@@ -555,7 +555,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179232036534236}
-  m_LocalRotation: {x: -0, y: -0, z: -0.03590347, w: 0.9993553}
+  m_LocalRotation: {x: -0, y: -0, z: -0.035903573, w: 0.99935526}
   m_LocalPosition: {x: 0.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -754,8 +754,24 @@ MonoBehaviour:
   - listName: Hurt sounds
     volume: 0.631
     audioClips:
-    - {fileID: 8300000, guid: 0a252d0dd6132b14ebf6eb394f629107, type: 3}
-    - {fileID: 8300000, guid: a760cd455b9f2c54396dcec6cd9be5dc, type: 3}
+    - {fileID: 8300000, guid: fb32836ec1692b742b65024a2b6f4564, type: 3}
+    - {fileID: 8300000, guid: 882f8992e8d0f294890e43b06002f7de, type: 3}
+    - {fileID: 8300000, guid: d6ccfb6f92cc11c4797b864d1ca04577, type: 3}
+    - {fileID: 8300000, guid: 5c9e398f7ff40a5418b92e37bf8a257c, type: 3}
+    - {fileID: 8300000, guid: 9c631e9f316406f4ebd1b5ab9d9dcbdc, type: 3}
+    - {fileID: 8300000, guid: 30128f2ddee45154aaf789b26599fa75, type: 3}
+    - {fileID: 8300000, guid: 028a8ab5c38db65428f5ec90d9f71569, type: 3}
+    - {fileID: 8300000, guid: d920d73ba1cc384478d8c2a90096787a, type: 3}
+    - {fileID: 8300000, guid: 8769489183c745847964445b1a5d4e5f, type: 3}
+    - {fileID: 8300000, guid: 919f7a811ee51c146a4ac914aa48a7b7, type: 3}
+    - {fileID: 8300000, guid: 6a25f10ffa119374e98694e3a7099b7d, type: 3}
+    - {fileID: 8300000, guid: 39058c5e394ba21429032a34bc739f5e, type: 3}
+    - {fileID: 8300000, guid: 93b63cd377c45214f8bf2a85de4ea48b, type: 3}
+    - {fileID: 8300000, guid: 6b0f396be0c1a7649afeb66473244819, type: 3}
+    - {fileID: 8300000, guid: 7bdfa4e639ab53e4f8952488f405c3fe, type: 3}
+    - {fileID: 8300000, guid: 0ec7ef0e49f1a9947bae166fb80d6879, type: 3}
+    - {fileID: 8300000, guid: 55a700ad9bf4be44e8c0d36fab56f288, type: 3}
+    - {fileID: 8300000, guid: e20b320b51800c94c8b9c2bbb983d803, type: 3}
   stepDistance: 1.3
 --- !u!114 &114305568032582148
 MonoBehaviour:

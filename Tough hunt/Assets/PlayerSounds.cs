@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSteps : MonoBehaviour {
+public class PlayerSounds : MonoBehaviour {
     public List<SoundsList> soundsLists;
     public float stepDistance = 0.4f;
 

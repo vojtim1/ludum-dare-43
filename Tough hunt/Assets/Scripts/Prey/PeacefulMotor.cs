@@ -18,6 +18,7 @@ public class PeacefulMotor : MonoBehaviour {
     private MyCharacterController controller;
     private float horizontalMove = 0f;
     private bool jump = false;
+    public float jumpDistance = 1.5f;
 
 
     bool isRunning = false;
@@ -76,16 +77,6 @@ public class PeacefulMotor : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            fear = true;
-            fearNow = fearTime;
-        }
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
@@ -118,7 +109,7 @@ public class PeacefulMotor : MonoBehaviour {
     }
     bool obstacleAhead()
     {
-        bool r = (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * 1.5f, ~ignoreLayers).transform);
+        bool r = (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * jumpDistance, ~ignoreLayers).transform);
         return r;
     }
 }
