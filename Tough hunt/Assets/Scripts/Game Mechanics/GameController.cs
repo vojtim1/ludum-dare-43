@@ -119,9 +119,17 @@ public class GameController : MonoBehaviour {
 				raidEvaluated = true;
 			}
 
-			if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 2))
+			if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 2) && !nightEvaluated)
 			{
-
+				foreach (Spawner spawner in spawners)
+				{
+					List<GameObject> animals = spawner.GetAnimals();
+					foreach (GameObject animal in animals)
+					{
+						animal.SendMessage("NightBoost");
+					}
+				}
+				nightEvaluated = true;
 			}
 		} else if (skippingTime)
 		{
@@ -133,9 +141,17 @@ public class GameController : MonoBehaviour {
 			currentGameTime -= totalDayTime;
 			currentDay++;
 			raidEvaluated = false;
-			nightEvaluated = true;
+			nightEvaluated = false;
 			village.NewDay();
             SpawnAnimals();
+			foreach(Spawner spawner in spawners)
+			{
+				List<GameObject> animals = spawner.GetAnimals();
+				foreach(GameObject animal in animals)
+				{
+					animal.SendMessage("NewDayBoost", currentDay);
+				}
+			}
 			skippingTime = false;
 			UnPauseGame();
 		}
