@@ -6,6 +6,7 @@ public class Settings : MonoBehaviour {
     private void Start()
     {
         instance = this;
+        DontDestroyOnLoad(this);
     }
 
     public void SetVolume(float volume)

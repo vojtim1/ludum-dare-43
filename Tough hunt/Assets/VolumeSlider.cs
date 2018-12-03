@@ -19,8 +19,6 @@ public class VolumeSlider : MonoBehaviour {
 
     void SetVolume()
     {
-        print("Slider");
-        print(slider.value);
         Settings.instance.SetVolume(slider.value);
     }
 }
