@@ -39,26 +39,30 @@ public class PreyAudio : MonoBehaviour {
     void PlayStepSound()
     {
         if (soundsLists[0].audioClips.Count > 0)
-            audioSource.PlayOneShot(soundsLists[0].GetRandomClip(), soundsLists[0].GetVolume());
+            audioSource.PlayOneShot(soundsLists[0].GetRandomClip(), soundsLists[0].GetVolume() * UpdateVolume());
     }
     public void PlayHurtSound()
     {
         if (soundsLists[1].audioClips.Count > 0)
-            audioSource.PlayOneShot(soundsLists[1].GetRandomClip(), soundsLists[1].GetVolume());
+            audioSource.PlayOneShot(soundsLists[1].GetRandomClip(), soundsLists[1].GetVolume() * UpdateVolume());
     }
     public void PlayDeathSound()
     {
         if(soundsLists[2].audioClips.Count > 0)
-            audioSource.PlayOneShot(soundsLists[2].GetRandomClip(), soundsLists[2].GetVolume());
+            audioSource.PlayOneShot(soundsLists[2].GetRandomClip(), soundsLists[2].GetVolume() * UpdateVolume());
     }
     void PlayAfterDeathSound()
     {
         if (soundsLists[3].audioClips.Count > 0)
-            audioSource.PlayOneShot(soundsLists[3].GetRandomClip(), soundsLists[3].GetVolume());
+            audioSource.PlayOneShot(soundsLists[3].GetRandomClip(), soundsLists[3].GetVolume() * UpdateVolume());
     }
     public void PlayAttackSound()
     {
         if (soundsLists[4].audioClips.Count > 0)
-            audioSource.PlayOneShot(soundsLists[4].GetRandomClip(), soundsLists[4].GetVolume());
+            audioSource.PlayOneShot(soundsLists[4].GetRandomClip(), soundsLists[4].GetVolume() * UpdateVolume());
+    }
+    float UpdateVolume()
+    {
+        return Settings.instance.GetVolume();
     }
 }

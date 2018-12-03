@@ -29,14 +29,18 @@ public class PlayerSounds : MonoBehaviour {
 
     void PlayStepSound()
     {
-        audioSource.PlayOneShot(soundsLists[0].GetRandomClip(), soundsLists[0].GetVolume());
+        audioSource.PlayOneShot(soundsLists[0].GetRandomClip(), soundsLists[0].GetVolume() * UpdateVolume());
     }
     public void PlayHurtSound()
     {
-        audioSource.PlayOneShot(soundsLists[1].GetRandomClip(), soundsLists[1].GetVolume());
+        audioSource.PlayOneShot(soundsLists[1].GetRandomClip(), soundsLists[1].GetVolume() * UpdateVolume());
     }
     public void PlayDeathSound()
     {
-        audioSource.PlayOneShot(soundsLists[2].GetRandomClip(), soundsLists[1].GetVolume());
+        audioSource.PlayOneShot(soundsLists[2].GetRandomClip(), soundsLists[1].GetVolume() * UpdateVolume());
+    }
+    float UpdateVolume()
+    {
+        return Settings.instance.GetVolume();
     }
 }
