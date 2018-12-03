@@ -30,9 +30,6 @@ public class Player : MonoBehaviour
 	float holdingTime = 0;
 
 	[SerializeField]
-	Image healthImage;
-
-	[SerializeField]
 	GameObject arrow;
 
 	[SerializeField]
@@ -117,7 +114,6 @@ public class Player : MonoBehaviour
 		currentArrowCount = (int)Mathf.Round(maxArrowCount);
 
         UpdateHealthIndicator();
-        //healthImage.color = new Color(1,1,1, 1 - currentHealth / maxHealth);
     }
 
 	void Shoot(float damage, float timeMultiplier)
@@ -174,7 +170,7 @@ public class Player : MonoBehaviour
 	public void TakeDamage(float damage)
 	{
 		currentHealth -= damage;
-        //healthImage.color = new Color(1, 1, 1, 1 - currentHealth / maxHealth);
+        
         UpdateHealthIndicator();
         if (currentHealth <= 0)
         {
