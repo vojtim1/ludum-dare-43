@@ -36,7 +36,7 @@ public class Prey : MonoBehaviour {
 	float newDayBoost;
 	public void NewDayBoost(int dayNumber)
 	{
-		health = health * newDayBoost * dayNumber;
+		health = health * (1 + newDayBoost * dayNumber);
 	}
 
 	void TakeDamage(float damage)

@@ -89,7 +89,7 @@ public class PeacefulMotor : MonoBehaviour {
 	float newDayBoost;
 	public void NewDayBoost(int dayNumber)
 	{
-		speed = speed * newDayBoost * dayNumber;
+		speed = speed * (1 + newDayBoost * dayNumber);
 	}
 
     void FixedUpdate()
