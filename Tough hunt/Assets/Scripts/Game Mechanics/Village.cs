@@ -51,12 +51,12 @@ public class Village : MonoBehaviour
 
 	public void StartRaid(int currentDay)
 	{
-		audioSource.Play();
 		if(Random.Range(0.0f, 1.0f) > raidChance)
 		{
 			return;
 		}
 		raidChance = 0.1f;
+		audioSource.Play();
 
 		if (currentFood >= foodToSustainRaid * currentDay)
 		{

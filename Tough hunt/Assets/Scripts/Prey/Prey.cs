@@ -53,6 +53,7 @@ public class Prey : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player" && !alive)
         {
+            TextBubble.instance.Say("I might skin this animal...", collision.gameObject, 2);
             collision.gameObject.SendMessage("Say", "I might skin this animal...");
             if (Input.GetKey(KeyCode.E))
             {
