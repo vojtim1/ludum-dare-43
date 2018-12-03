@@ -37,14 +37,22 @@ public class AmbientSoundsDayNight : MonoBehaviour {
         if (day)
         {
             audioSource.clip = nightClip;
+            audioSource.volume = nightVolume;
             day = false;
         }
         else
         {
             audioSource.clip = dayClip;
+            audioSource.volume = dayVolume;
             day = true;
         }
         audioSource.Play();
+        UpdateVolume();
+    }
+
+    void UpdateVolume()
+    {
+        audioSource.volume *= Settings.instance.GetVolume();
     }
 
     //IEnumerator FadeOut()
