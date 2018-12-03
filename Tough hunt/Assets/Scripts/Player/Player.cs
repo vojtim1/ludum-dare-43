@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class Player : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
 
 	[SerializeField]
 	AudioSource arrowShot;
+
 
 	void Awake()
 	{
@@ -118,8 +120,10 @@ public class Player : MonoBehaviour
 		currentArrowCount = (int)Mathf.Round(maxArrowCount);
 
 		healthText.SendMessage("SetText", currentHealth);
-		healthImage.color = new Color(1,1,1, 1 - currentHealth / maxHealth);
-	}
+
+        UpdateHealthIndicator();
+        //healthImage.color = new Color(1,1,1, 1 - currentHealth / maxHealth);
+    }
 
 	void Shoot(float damage, float timeMultiplier)
 	{
@@ -146,11 +150,45 @@ public class Player : MonoBehaviour
 		}
 	}
 
+    void UpdateHealthIndicator()
+    {
+        if (currentHealth / maxHealth < 1)
+        {
+            var postProc = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+
+            var vignette = postProc.vignette.settings;
+            var chromatic = postProc.chromaticAberration.settings;
+
+            var step = 0.25f;
+
+
+            vignette.intensity = 0.3f + step * Mathf.Clamp((1 - (currentHealth / maxHealth)), 0, 1);
+            chromatic.intensity = 1 - Mathf.Clamp((currentHealth / maxHealth), 0, 1);
+
+            postProc.vignette.settings = vignette;
+            postProc.chromaticAberration.settings = chromatic;
+        }
+        else
+        {
+            var postProc = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+
+            var vignette = postProc.vignette.settings;
+            var chromatic = postProc.chromaticAberration.settings;
+
+            chromatic.intensity = 0;
+            vignette.intensity = 0;
+
+            postProc.vignette.settings = vignette;
+            postProc.chromaticAberration.settings = chromatic;
+        }
+    }
+
 	public void TakeDamage(float damage)
 	{
 		currentHealth -= damage;
 		healthText.SendMessage("SetText", currentHealth);
-		healthImage.color = new Color(1, 1, 1, 1 - currentHealth / maxHealth);
+        //healthImage.color = new Color(1, 1, 1, 1 - currentHealth / maxHealth);
+        UpdateHealthIndicator();
         if (currentHealth <= 0)
         {
             GetComponent<PlayerSounds>().PlayDeathSound();

@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 3.5
+        intensity: 0.79113084
         threshold: 1.1
         softKnee: 0.5
         radius: 6.16
@@ -120,7 +120,7 @@ MonoBehaviour:
         neutralWhiteLevel: 5.3
         neutralWhiteClip: 10
       basic:
-        postExposure: 0.1
+        postExposure: 0.5965663
         temperature: 1
         tint: 1
         hueShift: 1
@@ -308,7 +308,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0
+      intensity: 1
   grain:
     m_Enabled: 0
     m_Settings:
@@ -322,7 +322,7 @@ MonoBehaviour:
       mode: 0
       color: {r: 1, g: 0, b: 0.020209312, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0
+      intensity: 0.55
       smoothness: 0.48
       roundness: 1
       mask: {fileID: 0}
