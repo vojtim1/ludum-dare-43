@@ -12,7 +12,9 @@ public class Village : MonoBehaviour
 	public int foodToSustainRaid = 10;
 
 	public float raidChance;
-
+	
+	// TODO Use Sound Controller instead for music
+	AudioSource audioSource;
 	void Awake()
 	{
 		if (instance == null)
@@ -23,6 +25,7 @@ public class Village : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Start()
@@ -48,6 +51,7 @@ public class Village : MonoBehaviour
 
 	public void StartRaid(int currentDay)
 	{
+		audioSource.Play();
 		if(Random.Range(0.0f, 1.0f) > raidChance)
 		{
 			return;
@@ -60,7 +64,7 @@ public class Village : MonoBehaviour
 		}
 		else
 		{
-			GameController.instance.GameOver("villageRaided");
+			GameController.instance.GameOver(GameOverState.VILLAGERAIDED);
 		}
 	}
 }

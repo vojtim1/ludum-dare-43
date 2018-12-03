@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
 		healthImage.color = new Color(1, 1, 1, 1 - currentHealth / maxHealth);
 		if (currentHealth <= 0)
 		{
-			GameController.instance.GameOver("playerDead");
+			GameController.instance.GameOver(GameOverState.PLAYERDIED);
 		}
 	}
 }

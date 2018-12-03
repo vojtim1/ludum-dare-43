@@ -99,8 +99,7 @@ public class GameController : MonoBehaviour {
 
 		raidEvaluated = false;
 
-		messageboard.gameObject.SetActive(true);
-		messageboard.DisplayText("Welcome to the game.","Welcome text.");
+		messageboard.DisplayText("Welcome to the game.","Welcome text.", true);
 	}
 
 	private bool raidEvaluated;
@@ -117,11 +116,9 @@ public class GameController : MonoBehaviour {
 			}
 			if (Math.Round(currentGameTime) == Math.Round(totalDayTime / 4) && !raidEvaluated)
 			{
-				//if (Math.Abs(player.transform.position.x - this.transform.position.x) > distanceToAllowRaid)
-				{
-					village.StartRaid(currentDay);
-					raidEvaluated = true;
-				}
+				// TODO: add evaluation only if player is far enough
+				village.StartRaid(currentDay);
+				raidEvaluated = true;
 			}
 		}
 	}
@@ -161,20 +158,20 @@ public class GameController : MonoBehaviour {
 		gamePaused = false;
 	}
 
-	public void GameOver(string deathType)
+	public void GameOver(GameOverState gameOverState)
 	{
 		PauseGame();
-		messageboard.gameObject.SetActive(true);
+		string gameOverMessage = "";
 		// TODO: Replace MessageBoard with GameOver screen
-		// TODO: Use Enum instead of string deathType
-		switch (deathType)
+		switch (gameOverState)
 		{
-			case "playerDead":
-				messageboard.DisplayText("Game over!", "You died. The game is over.");
+			case GameOverState.PLAYERDIED:
+				gameOverMessage = "You died. The game is over.";
 				break;
-			case "villageRaided":
-				messageboard.DisplayText("Game over!", "The village was raided. The game is over.");
+			case GameOverState.VILLAGERAIDED:
+				gameOverMessage = "The village was raided. The game is over.";
 				break;
 		}
+		messageboard.DisplayText("Game over!", gameOverMessage, false);
 	}
 }
