@@ -333,7 +333,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468749107095968}
-  m_LocalRotation: {x: 0, y: 0, z: -0.000000021318666, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.00000006229287, w: 1}
   m_LocalPosition: {x: 0.09821282, y: 0.00000015188047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -373,7 +373,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667898446442902}
-  m_LocalRotation: {x: 0, y: 0, z: -0.61201346, w: 0.7908474}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6120135, w: 0.7908473}
   m_LocalPosition: {x: 0.15643144, y: -0.08292907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -401,7 +401,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566773738287990}
-  m_LocalRotation: {x: -0, y: -0, z: -0.25823334, w: 0.9660826}
+  m_LocalRotation: {x: -0, y: -0, z: -0.2582332, w: 0.96608263}
   m_LocalPosition: {x: 0.273, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -427,7 +427,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316491319503178}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0000000037247272, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.00000019741054, w: 1}
   m_LocalPosition: {x: 0.16667217, y: -0.00000006390442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -456,7 +456,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225004360332602}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7839918, w: 0.62077117}
+  m_LocalRotation: {x: 0, y: 0, z: -0.78399205, w: 0.62077093}
   m_LocalPosition: {x: 0.1554152, y: -0.038602293, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -538,7 +538,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398815671160672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.58, y: -0.56, z: 0}
+  m_LocalPosition: {x: -52.12, y: -0.92, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4632449639094622}
@@ -555,7 +555,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179232036534236}
-  m_LocalRotation: {x: -0, y: -0, z: -0.035903573, w: 0.99935526}
+  m_LocalRotation: {x: -0, y: -0, z: -0.03590347, w: 0.9993553}
   m_LocalPosition: {x: 0.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -772,6 +772,19 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 0ec7ef0e49f1a9947bae166fb80d6879, type: 3}
     - {fileID: 8300000, guid: 55a700ad9bf4be44e8c0d36fab56f288, type: 3}
     - {fileID: 8300000, guid: e20b320b51800c94c8b9c2bbb983d803, type: 3}
+  - listName: Death Sounds
+    volume: 0.631
+    audioClips:
+    - {fileID: 8300000, guid: a041916c22b50fb4596041f1565eeb4e, type: 3}
+    - {fileID: 8300000, guid: 49483d1434ba53f47a2df822e2db93fe, type: 3}
+    - {fileID: 8300000, guid: e34e1746a708a6a47a2b30b2bf04c5c7, type: 3}
+    - {fileID: 8300000, guid: 865cd01ce37d3bf4b870f5941920065b, type: 3}
+    - {fileID: 8300000, guid: d4040518162912e4597f1042284c5e78, type: 3}
+    - {fileID: 8300000, guid: cd1553a899fd6a34bad31eff78aa2835, type: 3}
+    - {fileID: 8300000, guid: 45a9376574c4f514a8247b4fd2a30d0e, type: 3}
+    - {fileID: 8300000, guid: d2fd85121c406ab4cadc6586c435143d, type: 3}
+    - {fileID: 8300000, guid: 4d37e39fee312574ea1b9081489b7e99, type: 3}
+    - {fileID: 8300000, guid: a4810c1002da8f04fbf03a34ce739853, type: 3}
   stepDistance: 1.3
 --- !u!114 &114305568032582148
 MonoBehaviour:
@@ -1002,7 +1015,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62bc57cd7478e5e41acf82ff0e88a50b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
