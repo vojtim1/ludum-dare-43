@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ISpawner
 {
     void SpawnAnimals(int dayNumer);
+    List<GameObject> GetAnimals();
 }
 
 public class Spawner : MonoBehaviour, ISpawner {
@@ -66,4 +67,9 @@ public class Spawner : MonoBehaviour, ISpawner {
 	// Update is called once per frame
 	void Update () {
 	}
+
+    public List<GameObject> GetAnimals()
+    {
+        return spawnedAnimals;
+    }
 }
