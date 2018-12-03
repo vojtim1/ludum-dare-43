@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ISpawner
 {
     void SpawnAnimals(int dayNumer);
+    List<GameObject> GetAnimals();
 }
 
 public class Spawner : MonoBehaviour, ISpawner {
