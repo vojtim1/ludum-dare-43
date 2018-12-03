@@ -1271,13 +1271,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c9b78ae736e2d2c47babd5c4027186e5, type: 3}
   - listName: Attack sounds
     volume: 0.619
-    audioClips:
-    - {fileID: 8300000, guid: 78aa5e055e9d6354da0160fc0972af26, type: 3}
-    - {fileID: 8300000, guid: f6e05b38bae866447a2af108f2fd1fa7, type: 3}
-    - {fileID: 8300000, guid: 27b3583af3f3fbe4399d0fbab11ad366, type: 3}
-    - {fileID: 8300000, guid: b03218b48aeadee418b32fda8a552bae, type: 3}
-    - {fileID: 8300000, guid: 5423e9d6d63e17b438e770e4cc056793, type: 3}
-    - {fileID: 8300000, guid: c9b78ae736e2d2c47babd5c4027186e5, type: 3}
+    audioClips: []
   stepDistance: 2
 --- !u!212 &212251695447471214
 SpriteRenderer:
