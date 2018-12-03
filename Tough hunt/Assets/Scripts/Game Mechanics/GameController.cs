@@ -121,12 +121,12 @@ public class GameController : MonoBehaviour {
 
 			if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 2) && !nightEvaluated)
 			{
-				foreach (Spawner spawner in spawners)
+				for (int i = 0; i < spawners.Count; i++)
 				{
-					List<GameObject> animals = spawner.GetAnimals();
-					foreach (GameObject animal in animals)
+					List<GameObject> animals = spawners[i].GetAnimals();
+					for (int j = 0; j < animals.Count; j++)
 					{
-						animal.SendMessage("NightBoost");
+						animals[j].SendMessage("NightBoost");
 					}
 				}
 				Debug.Log("Boosted.");
@@ -145,12 +145,12 @@ public class GameController : MonoBehaviour {
 			nightEvaluated = false;
 			village.NewDay();
             SpawnAnimals();
-			foreach(Spawner spawner in spawners)
+			for (int i = 0; i < spawners.Count; i++)
 			{
-				List<GameObject> animals = spawner.GetAnimals();
-				foreach(GameObject animal in animals)
+				List<GameObject> animals = spawners[i].GetAnimals();
+				for (int j = 0; j < animals.Count; j++)
 				{
-					animal.SendMessage("NewDayBoost", currentDay);
+					animals[j].SendMessage("NewDayBoost", currentDay);
 				}
 			}
 			skippingTime = false;
