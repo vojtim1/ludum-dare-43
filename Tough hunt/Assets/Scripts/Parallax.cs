@@ -11,11 +11,13 @@ public class Parallax : MonoBehaviour {
     [SerializeField]
     float scale = 1;
 
+	[SerializeField]
+	Vector2 offset;
 	// Use this for initialization
 	void Start () {
         mainCamera = Camera.main;
-        startPosition = transform.position;
         cameraStartPosition = mainCamera.transform.position;
+		startPosition = cameraStartPosition + offset;
 	}
 	
 	// Update is called once per frame
