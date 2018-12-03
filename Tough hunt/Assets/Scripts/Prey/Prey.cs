@@ -67,8 +67,7 @@ public class Prey : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player" && !alive)
         {
-            if(Settings.instance.GetShowHints())
-                TextBubble.instance.Say("I might skin this animal...", collision.gameObject, 2);
+            TextBubble.instance.Say("I might skin this animal...", collision.gameObject, 2);
             if (Input.GetKey(KeyCode.E))
             {
                 GameController.instance.AddFood(foodReward);
