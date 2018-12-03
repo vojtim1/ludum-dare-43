@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 114850676020600370}
   - component: {fileID: 114769761612561806}
   - component: {fileID: 82399289748920368}
+  - component: {fileID: 114130530244143684}
   m_Layer: 10
   m_Name: Hunter
   m_TagString: Player
@@ -332,7 +333,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468749107095968}
-  m_LocalRotation: {x: 0, y: 0, z: -0.00000006136164, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.00000006229287, w: 1}
   m_LocalPosition: {x: 0.09821282, y: 0.00000015188047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -372,14 +373,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667898446442902}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6120134, w: 0.7908474}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6120135, w: 0.7908473}
   m_LocalPosition: {x: 0.15643144, y: -0.08292907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4039376067560682}
   m_Father: {fileID: 4972539267522550}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -76.657005}
 --- !u!4 &4193747285746510
 Transform:
   m_ObjectHideFlags: 1
@@ -400,7 +401,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566773738287990}
-  m_LocalRotation: {x: -0, y: -0, z: -0.2582334, w: 0.9660826}
+  m_LocalRotation: {x: -0, y: -0, z: -0.2582332, w: 0.96608263}
   m_LocalPosition: {x: 0.273, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -426,7 +427,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316491319503178}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0000000037247272, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.00000019741054, w: 1}
   m_LocalPosition: {x: 0.16667217, y: -0.00000006390442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -455,7 +456,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225004360332602}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7839918, w: 0.62077117}
+  m_LocalRotation: {x: 0, y: 0, z: -0.78399205, w: 0.62077093}
   m_LocalPosition: {x: 0.1554152, y: -0.038602293, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -537,7 +538,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398815671160672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -0.56, z: 0}
+  m_LocalPosition: {x: -52.12, y: -0.92, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4632449639094622}
@@ -554,7 +555,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179232036534236}
-  m_LocalRotation: {x: -0, y: -0, z: -0.035903573, w: 0.99935526}
+  m_LocalRotation: {x: -0, y: -0, z: -0.03590347, w: 0.9993553}
   m_LocalPosition: {x: 0.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -593,9 +594,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 4
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &70654600547855834
 CapsuleCollider2D:
@@ -632,7 +633,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -667,7 +668,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -725,6 +726,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114130530244143684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398815671160672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3509397bb05d540b2938b8402c2b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsLists:
+  - listName: Grass Steps
+    volume: 0.4
+    audioClips:
+    - {fileID: 8300000, guid: 5a63b83e96622d043991fbb29a89abc1, type: 3}
+    - {fileID: 8300000, guid: cca1b1beb80f76340944a78634c02245, type: 3}
+    - {fileID: 8300000, guid: 0c8904326de84664c9f89aed92987997, type: 3}
+    - {fileID: 8300000, guid: 9a5854c20d1b3de47b88e4c89e595a39, type: 3}
+    - {fileID: 8300000, guid: 6b8792e25ce27004f8d255741d4327c4, type: 3}
+    - {fileID: 8300000, guid: f9dabb4850f434b49b9588cf1ece219b, type: 3}
+    - {fileID: 8300000, guid: cade9a83df3f2b14bb4bbe5cd775cc5a, type: 3}
+    - {fileID: 8300000, guid: 7aacf032617b2d542aee0d2e79340587, type: 3}
+    - {fileID: 8300000, guid: 4dbbb83f11371bb4baea1dac4682dd00, type: 3}
+    - {fileID: 8300000, guid: fc543b06bda94364ea64f5be578fde9b, type: 3}
+  - listName: Hurt sounds
+    volume: 0.631
+    audioClips:
+    - {fileID: 8300000, guid: 0a252d0dd6132b14ebf6eb394f629107, type: 3}
+    - {fileID: 8300000, guid: a760cd455b9f2c54396dcec6cd9be5dc, type: 3}
+  stepDistance: 1.3
 --- !u!114 &114305568032582148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -787,6 +819,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 4096827802831272}
   groundedRadius: 0.3
+  grounded: 0
 --- !u!114 &114765237326324660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -799,7 +832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 1160051261806342}
-  maxDistance: 0.65
+  maxDistance: 0.8
   maxPull: 0.2
 --- !u!114 &114769761612561806
 MonoBehaviour:
@@ -911,7 +944,7 @@ MonoBehaviour:
   speed: 400
   arrowDamage: 100
   arrowSpeed: 2000
-  maxArrowCount: 10
+  maxArrowCount: 300
   holdingMaxTime: 1
   holdIndicator: {fileID: 0}
   healthText: {fileID: 0}
@@ -953,7 +986,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 62bc57cd7478e5e41acf82ff0e88a50b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -54,4 +54,16 @@ public class PlayerMotor : MonoBehaviour {
 		}
         jump = false;
 	}
+
+    void Push(GameObject go)
+    {
+        GetComponent<Rigidbody2D>().AddForce((GetRepelVector(go) + Vector2.up / 2) * 600);
+    }
+
+    Vector2 GetRepelVector(GameObject go)
+    {
+        if (go.transform.position.x > transform.position.x)
+            return Vector2.left;
+        else return Vector2.right;
+    }
 }

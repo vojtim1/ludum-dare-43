@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(MyCharacterController))]
 public class PeacefulMotor : MonoBehaviour {
+    public LayerMask ignoreLayers;
 
     [SerializeField]
     private float speed = 40.0f;
@@ -117,7 +118,7 @@ public class PeacefulMotor : MonoBehaviour {
     }
     bool obstacleAhead()
     {
-        bool r = (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * 1.5f, 1 << 8).transform);
+        bool r = (Physics2D.Raycast(transform.position, runningDirection, runningDirection.magnitude * 1.5f, ~ignoreLayers).transform);
         return r;
     }
 }

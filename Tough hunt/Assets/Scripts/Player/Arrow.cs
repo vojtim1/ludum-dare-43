@@ -11,7 +11,7 @@ public class Arrow : MonoBehaviour {
     bool rotate = true;
 
 	[SerializeField]
-	AudioSource arrowHit;
+	AudioSource audioSource;
 	[SerializeField]
 	private AudioClip hitGround;
 	[SerializeField]
@@ -20,6 +20,7 @@ public class Arrow : MonoBehaviour {
 	void Start () {
         spawnTime = Time.time;
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -56,11 +57,11 @@ public class Arrow : MonoBehaviour {
         {
             transform.SetParent(collision.transform);
             collision.gameObject.SendMessage("TakeDamage", damage);
-			arrowHit.PlayOneShot(hitMeat);
+			audioSource.PlayOneShot(hitMeat);
         }
 		if(collision.gameObject.layer == 8)
 		{
-			arrowHit.PlayOneShot(hitGround);
+			audioSource.PlayOneShot(hitGround);
 		}
         if(collision.gameObject.GetComponent<SpriteRenderer>())
             GetComponent<SpriteRenderer>().sortingOrder = collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;

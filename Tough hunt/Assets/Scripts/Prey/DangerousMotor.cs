@@ -98,6 +98,8 @@ public class DangerousMotor : MonoBehaviour {
             lastTimeAttacked = Time.time;
             GetComponent<Animator>().CrossFade("Attack", 0);
             Player.instance.SendMessage("TakeDamage", damage);
+            Player.instance.SendMessage("Push", gameObject);
+            GetComponent<PreyAudio>().PlayAttackSound();
         }
     }
 

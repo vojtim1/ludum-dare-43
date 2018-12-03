@@ -23,7 +23,7 @@ public class MyCharacterController : MonoBehaviour
     [SerializeField]
     private float groundedRadius;
 
-    private bool grounded = false;
+    public bool grounded = false ;
     private Rigidbody2D rigidbody2D;
     private Vector3 velocity = Vector3.zero;
 
@@ -45,7 +45,7 @@ public class MyCharacterController : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject)
+            if (colliders[i].gameObject.layer == 8)
             {
                 grounded = true;
             }

@@ -20,8 +20,10 @@ public class Prey : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+		if(GetComponent<MyCharacterController>().grounded)
+            if (!alive)
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+    }
 
     void TakeDamage(float damage)
     {
@@ -31,17 +33,20 @@ public class Prey : MonoBehaviour {
         {
             Die();
         }
+        else GetComponent<PreyAudio>().PlayHurtSound();
     }
 
     void Die()
     {
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        if (GetComponent<MyCharacterController>().grounded)
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         foreach (Collider2D col in GetComponents<Collider2D>())
             col.enabled = false;
         harvestTrigger.enabled = true;
         harvestTrigger.isTrigger = true;
         alive = false;
         GetComponent<Animator>().CrossFade("Death", 0);
+        GetComponent<PreyAudio>().PlayDeathSound();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
