@@ -57,7 +57,8 @@ public class RabbitTrap : MonoBehaviour {
             }
             if(state == TrapState.TRIGGERED)
             {
-                print("Press E to gather food.");
+                if (Settings.instance.GetShowHints())
+                    TextBubble.instance.Say("A hare got caught, nice...\nLet's gather the food!", collision.gameObject, 2);
             }
         }
     }
