@@ -194,7 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e783f1527bb7b43906504d6ad6c9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - Hello hunter, nice bow!
+  - Yummy steak, may I have one too?
   isStatic: 1
   standingStill: 0
   movementPoints:
