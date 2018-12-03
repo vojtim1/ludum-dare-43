@@ -91,16 +91,15 @@ public class DangerousMotor : MonoBehaviour {
 		speed = speed * nightBoost;
 		agroDistance = agroDistance * nightBoost;
 		damage = damage * nightBoost;
-		attacksPerSecond = attacksPerSecond * nightBoost;
 	}
 
 	[SerializeField]
 	float newDayBoost;
-	public void DayNerf(int dayNumber)
+	public void NewDayBoost(int dayNumber)
 	{
-		speed = speed * newDayBoost * dayNumber;
-		damage = damage * newDayBoost * dayNumber;
-		attacksPerSecond = attacksPerSecond * newDayBoost * dayNumber;
+		speed = speed * (1 + newDayBoost * dayNumber);
+		damage = damage * (1 + newDayBoost * dayNumber);
+		attacksPerSecond = attacksPerSecond * (1 + newDayBoost * dayNumber);
 	}
 
 	Vector2 GetRunningDirection(GameObject lGameObject)
