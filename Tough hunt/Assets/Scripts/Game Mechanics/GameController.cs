@@ -103,7 +103,16 @@ public class GameController : MonoBehaviour {
 		raidEvaluated = false;
 
 		foodDisplay.SendMessage("SetText", carryingFood);
-		messageboard.DisplayText("Welcome to the game.","Welcome text.", true);
+		messageboard.DisplayText("Welcome","You are the Hunter who serves in this small settlement which is hidden in the woods. The villagers" +
+			" are poor and have only you to provide their food. However, you also need some supplies for yourself.\r\n" +
+			"Go to the villager on your left to use the current food to boost your own skills. Go to the villager on your right to sacrifice " +
+			"your food so the village may live.\r\n" +
+			"Be careful! There is a chance of a bandit raid which you cannot prevent. It happens during the day so you better be hunting" +
+			"and obtaining food at that time.\r\n" +
+			"You can sleep in your bed to skip the night (which tends to be dangerous) and every time you visit your arrow stand, " +
+			"your health and gear will refill.\r\n" +
+			"With time, the days are about to get more dangerous. Good luck!\r\n" +
+			"(Use A,D to walk, Space to jump, E to interact and LMB to shoot.)", true);
 	}
 
 	private bool raidEvaluated;
