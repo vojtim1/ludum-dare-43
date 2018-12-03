@@ -33,9 +33,9 @@ public class Spawner : MonoBehaviour, ISpawner {
         SpawnAnimals(0);
     }
 
-    public void SpawnAnimals(int dayNumer)
+    public void SpawnAnimals(int dayNumber)
     {
-        Debug.Log(dayNumer);
+        Debug.Log(dayNumber);
 
         foreach (var animal in spawnedAnimals)
         {
@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour, ISpawner {
 
         spawnedAnimals = new List<GameObject>();
 
-        int numberOfAnimalsToSpawn = (int)Mathf.Round(initAnimalSpawnCount + numberOfAnimalsToAddEveryDay * dayNumer) - spawnedAnimals.Count;
+        int numberOfAnimalsToSpawn = (int)Mathf.Round(initAnimalSpawnCount + numberOfAnimalsToAddEveryDay * dayNumber) - spawnedAnimals.Count;
 
         for (int i = 0; i < numberOfAnimalsToSpawn; i++)
         {
@@ -53,23 +53,14 @@ public class Spawner : MonoBehaviour, ISpawner {
         }
     }
 
-    private void OnDrawGizmos()
+	public List<GameObject> GetAnimals()
+	{
+		return spawnedAnimals;
+	}
+
+	private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), new Vector3(2 * radius, 2));
-    }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
-
-    public List<GameObject> GetAnimals()
-    {
-        return spawnedAnimals;
     }
 }

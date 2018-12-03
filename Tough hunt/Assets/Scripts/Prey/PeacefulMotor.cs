@@ -77,6 +77,21 @@ public class PeacefulMotor : MonoBehaviour {
         }
     }
 
+	[SerializeField]
+	float nightBoost;
+	public void NightBoost()
+	{
+		speed = speed * nightBoost;
+		fearDistance = fearDistance * nightBoost;
+	}
+
+	[SerializeField]
+	float newDayBoost;
+	public void NewDayBoost(int dayNumber)
+	{
+		speed = speed * newDayBoost * dayNumber;
+	}
+
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);

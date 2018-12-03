@@ -1080,41 +1080,41 @@ MonoBehaviour:
   - listName: Grass steps
     volume: 0.8
     audioClips:
-    - {fileID: 8300000, guid: 63936df93c190964dbe85fe79eb34af2, type: 3}
-    - {fileID: 8300000, guid: 5709018b37a67184996e15dfb15719bf, type: 3}
-    - {fileID: 8300000, guid: 181185c80b9495046a82a64154c86a7d, type: 3}
-    - {fileID: 8300000, guid: 81bfeda941503924da03d5aa2c6e9546, type: 3}
-    - {fileID: 8300000, guid: ddf4cda257e0cb64686e9c10c4698e1a, type: 3}
-    - {fileID: 8300000, guid: b5e2200261ee42640b6065cfd307c3e6, type: 3}
-    - {fileID: 8300000, guid: ac552b17461c1b140b224da822463964, type: 3}
-    - {fileID: 8300000, guid: ed571431c5bdc52478641a4a46b028c7, type: 3}
-    - {fileID: 8300000, guid: 0ece476858d06f84ba6874b0a34a6892, type: 3}
-    - {fileID: 8300000, guid: 423c5ea3066c05e48a6e3c76755007a5, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - listName: Hurt sounds
     volume: 0.57
     audioClips:
-    - {fileID: 8300000, guid: 1baabf4d32054a84d9cc3d433e3618b6, type: 3}
-    - {fileID: 8300000, guid: 1282d58d5a086e64bb976884f773961a, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
   - listName: Death souns
     volume: 0.57
     audioClips:
-    - {fileID: 8300000, guid: c79185539ebe16f49be489ba9c4151cc, type: 3}
-    - {fileID: 8300000, guid: de39fc12e860cb24593f5e455a1df8d5, type: 3}
-    - {fileID: 8300000, guid: 4ff8d3533eb67874b97232e2ed421724, type: 3}
-    - {fileID: 8300000, guid: b517e1605aff315459cff67793e630f9, type: 3}
-    - {fileID: 8300000, guid: e995563f1532aa344ab34a800dc0f76a, type: 3}
-    - {fileID: 8300000, guid: b86eb25d618e7484cb47faa6043f59e3, type: 3}
-    - {fileID: 8300000, guid: 60f8ac1b9e32d9445a8a37ef7f8ac7d9, type: 3}
-    - {fileID: 8300000, guid: 5f3ec4ddf2a605648a609cc66a86ff85, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - listName: After death sounds
     volume: 0.3
     audioClips:
-    - {fileID: 8300000, guid: 78aa5e055e9d6354da0160fc0972af26, type: 3}
-    - {fileID: 8300000, guid: f6e05b38bae866447a2af108f2fd1fa7, type: 3}
-    - {fileID: 8300000, guid: 27b3583af3f3fbe4399d0fbab11ad366, type: 3}
-    - {fileID: 8300000, guid: b03218b48aeadee418b32fda8a552bae, type: 3}
-    - {fileID: 8300000, guid: 5423e9d6d63e17b438e770e4cc056793, type: 3}
-    - {fileID: 8300000, guid: c9b78ae736e2d2c47babd5c4027186e5, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - listName: Attack sounds
     volume: 0.431
     audioClips: []
@@ -1134,6 +1134,8 @@ MonoBehaviour:
   foodReward: 30
   harvestTrigger: {fileID: 70627617182374084}
   alive: 1
+  nightBoost: 5
+  newDayBoost: 0
 --- !u!114 &114467350997766940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,6 +1202,8 @@ MonoBehaviour:
   attackDistance: 3
   damage: 40
   attacksPerSecond: 0.6
+  nightBoost: 4
+  newDayBoost: 1.1
 --- !u!114 &114689639510907436
 MonoBehaviour:
   m_ObjectHideFlags: 1

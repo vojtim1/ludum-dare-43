@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	private bool raidEvaluated;
+	private bool nightEvaluated;
 	void Update () {
 		if (!gamePaused)
 		{
@@ -116,6 +117,19 @@ public class GameController : MonoBehaviour {
 				// TODO: add evaluation only if player is far enough
 				village.StartRaid(currentDay);
 				raidEvaluated = true;
+			}
+
+			if(Math.Round(currentGameTime) == Math.Round(totalDayTime / 2) && !nightEvaluated)
+			{
+				foreach (Spawner spawner in spawners)
+				{
+					List<GameObject> animals = spawner.GetAnimals();
+					foreach (GameObject animal in animals)
+					{
+						animal.SendMessage("NightBoost");
+					}
+				}
+				nightEvaluated = true;
 			}
 		} else if (skippingTime)
 		{
@@ -127,8 +141,17 @@ public class GameController : MonoBehaviour {
 			currentGameTime -= totalDayTime;
 			currentDay++;
 			raidEvaluated = false;
+			nightEvaluated = false;
 			village.NewDay();
             SpawnAnimals();
+			foreach(Spawner spawner in spawners)
+			{
+				List<GameObject> animals = spawner.GetAnimals();
+				foreach(GameObject animal in animals)
+				{
+					animal.SendMessage("NewDayBoost", currentDay);
+				}
+			}
 			skippingTime = false;
 			UnPauseGame();
 		}

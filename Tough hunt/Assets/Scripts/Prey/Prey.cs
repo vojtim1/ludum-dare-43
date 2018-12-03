@@ -25,7 +25,21 @@ public class Prey : MonoBehaviour {
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
-    void TakeDamage(float damage)
+	[SerializeField]
+	float nightBoost;
+	public void NightBoost()
+	{
+		health = health * nightBoost;
+	}
+
+	[SerializeField]
+	float newDayBoost;
+	public void NewDayBoost(int dayNumber)
+	{
+		health = health * newDayBoost * dayNumber;
+	}
+
+	void TakeDamage(float damage)
     {
         health -= damage;
 
@@ -53,8 +67,7 @@ public class Prey : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player" && !alive)
         {
-            if(Settings.instance.GetShowHints())
-                TextBubble.instance.Say("I might skin this animal...", collision.gameObject, 2);
+            TextBubble.instance.Say("I might skin this animal...", collision.gameObject, 2);
             if (Input.GetKey(KeyCode.E))
             {
                 GameController.instance.AddFood(foodReward);
