@@ -152,35 +152,28 @@ public class Player : MonoBehaviour
 
     void UpdateHealthIndicator()
     {
+
+        var postProc = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+
+        var vignette = postProc.vignette.settings;
+        var chromatic = postProc.chromaticAberration.settings;
+
         if (currentHealth / maxHealth < 1)
         {
-            var postProc = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
-
-            var vignette = postProc.vignette.settings;
-            var chromatic = postProc.chromaticAberration.settings;
-
             var step = 0.25f;
-
 
             vignette.intensity = 0.3f + step * Mathf.Clamp((1 - (currentHealth / maxHealth)), 0, 1);
             chromatic.intensity = 1 - Mathf.Clamp((currentHealth / maxHealth), 0, 1);
-
-            postProc.vignette.settings = vignette;
-            postProc.chromaticAberration.settings = chromatic;
         }
         else
         {
-            var postProc = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
-
-            var vignette = postProc.vignette.settings;
-            var chromatic = postProc.chromaticAberration.settings;
 
             chromatic.intensity = 0;
             vignette.intensity = 0;
-
-            postProc.vignette.settings = vignette;
-            postProc.chromaticAberration.settings = chromatic;
         }
+
+        postProc.vignette.settings = vignette;
+        postProc.chromaticAberration.settings = chromatic;
     }
 
 	public void TakeDamage(float damage)

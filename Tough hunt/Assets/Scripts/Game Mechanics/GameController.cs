@@ -121,12 +121,14 @@ public class GameController : MonoBehaviour {
 		{
 			currentGameTime += Time.deltaTime * timeSpeedBoost;
 		}
+        // NEW DAY
 		if (currentGameTime >= totalDayTime)
 		{
 			currentGameTime -= totalDayTime;
 			currentDay++;
 			raidEvaluated = false;
 			village.NewDay();
+            SpawnAnimals();
 			skippingTime = false;
 			UnPauseGame();
 		}
@@ -172,6 +174,27 @@ public class GameController : MonoBehaviour {
 	{
 		gamePaused = false;
 	}
+
+    private List<ISpawner> spawners;
+
+    public void RegisterAnimalSpawner(ISpawner spawner)
+    {
+        if (spawners == null)
+            spawners = new List<ISpawner>();
+
+        spawners.Add(spawner);
+    }
+
+    void SpawnAnimals()
+    {
+        if (spawners == null)
+            return;
+
+        foreach (var spawner in spawners)
+        {
+            spawner.SpawnAnimals(currentDay);
+        }
+    }
 
 	public void GameOver(GameOverState gameOverState)
 	{
