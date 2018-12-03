@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
 	float holdingTime = 0;
 
 	[SerializeField]
-	Text healthText;
-	[SerializeField]
 	Image healthImage;
 
 	[SerializeField]
@@ -111,15 +109,12 @@ public class Player : MonoBehaviour
 		holdingMaxTime -= baseToAdd * 0.005f;
 
 		currentHealth = maxHealth;
-		healthText.SendMessage("SetText", currentHealth);
 	}
 
 	public void RegainResources()
 	{
 		currentHealth = maxHealth;
 		currentArrowCount = (int)Mathf.Round(maxArrowCount);
-
-		healthText.SendMessage("SetText", currentHealth);
 
         UpdateHealthIndicator();
         //healthImage.color = new Color(1,1,1, 1 - currentHealth / maxHealth);
@@ -179,7 +174,6 @@ public class Player : MonoBehaviour
 	public void TakeDamage(float damage)
 	{
 		currentHealth -= damage;
-		healthText.SendMessage("SetText", currentHealth);
         //healthImage.color = new Color(1, 1, 1, 1 - currentHealth / maxHealth);
         UpdateHealthIndicator();
         if (currentHealth <= 0)

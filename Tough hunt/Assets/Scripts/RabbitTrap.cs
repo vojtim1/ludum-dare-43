@@ -6,7 +6,6 @@ public class RabbitTrap : MonoBehaviour {
     public float setUpTime = 2f;
     public float tickTime = 10f;
     public float triggerChance = 0.5f;
-    public Image indicator;
     public float minPlayerDistance;
 
     public float time;
@@ -23,7 +22,6 @@ public class RabbitTrap : MonoBehaviour {
 	void Update () {
         if (settingUp && state == TrapState.READY)
         {
-            indicator.fillAmount = time / setUpTime;
             time += Time.deltaTime;
             if(time >= setUpTime)
             {
