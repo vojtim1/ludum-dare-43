@@ -9,48 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1986172320981860}
+  m_RootGameObject: {fileID: 1201382053519920}
   m_IsPrefabAsset: 1
---- !u!1 &1986172320981860
+--- !u!1 &1201382053519920
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4221213611658214}
-  - component: {fileID: 212897922255644950}
-  - component: {fileID: 95770183193680292}
-  - component: {fileID: 114785307754229058}
-  - component: {fileID: 61989385084929832}
-  - component: {fileID: 82185014832325086}
-  - component: {fileID: 114150601148691978}
+  - component: {fileID: 4943046141849448}
+  - component: {fileID: 212937897864651428}
+  - component: {fileID: 95008546582017238}
+  - component: {fileID: 114308356786212734}
+  - component: {fileID: 61600077110482376}
+  - component: {fileID: 82943388338556926}
+  - component: {fileID: 114856672985304610}
   m_Layer: 0
-  m_Name: VillagerWoman
+  m_Name: HeadVillager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4221213611658214
+--- !u!4 &4943046141849448
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986172320981860}
+  m_GameObject: {fileID: 1201382053519920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.302, y: -1.409, z: 0}
+  m_LocalPosition: {x: -53.186, y: -1.351, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61989385084929832
+--- !u!61 &61600077110482376
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986172320981860}
+  m_GameObject: {fileID: 1201382053519920}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -61,21 +61,21 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 1.75}
-    newSize: {x: 0.15, y: 0.27}
+    oldSize: {x: 1.117647, y: 1.8235294}
+    newSize: {x: 1.117647, y: 1.8235294}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.35}
+  m_Size: {x: 1.117647, y: 1.8235294}
   m_EdgeRadius: 0
---- !u!82 &82185014832325086
+--- !u!82 &82943388338556926
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986172320981860}
+  m_GameObject: {fileID: 1201382053519920}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -165,16 +165,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &95770183193680292
+--- !u!95 &95008546582017238
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986172320981860}
+  m_GameObject: {fileID: 1201382053519920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e24b251d55ebdf842bca2a6f47566781, type: 2}
+  m_Controller: {fileID: 9100000, guid: 703a6a41ab2309e42ab371c414d5d7d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,12 +183,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114150601148691978
+--- !u!114 &114308356786212734
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986172320981860}
+  m_GameObject: {fileID: 1201382053519920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d11c43fccfce4345a068bf9186f19b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues: []
+  isStatic: 1
+  standingStill: 0
+  movementPoints:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  time: 0
+  stopTime: 0
+  target: {x: 0, y: 0}
+  animate: 0
+--- !u!114 &114856672985304610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201382053519920}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1cc525a4e9f634a9a53e8cfd2bd07e, type: 3}
@@ -219,36 +240,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 47b765bd846d62245a70838c1f589b1f, type: 3}
     - {fileID: 8300000, guid: 48a1c2ff94f8e1e49be56265fba2d211, type: 3}
   stepDistance: 0.5
---- !u!114 &114785307754229058
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986172320981860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cada3bc3d1073d4bb50ef11f747db7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogues:
-  - The hero!
-  - Sacrifice!
-  - Please would you have some spare food for me and my children?
-  isStatic: 0
-  standingStill: 0
-  movementPoints:
-  - {x: -1.57, y: 0}
-  - {x: 1.57, y: 0}
-  time: 0
-  stopTime: 2
-  target: {x: 0, y: 0}
-  animate: 1
---- !u!212 &212897922255644950
+--- !u!212 &212937897864651428
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986172320981860}
+  m_GameObject: {fileID: 1201382053519920}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -277,13 +274,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: f7f95eb9c6ae98e4192cc005438bf1af, type: 3}
-  m_Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: eaab9343a6bfb0242b93cc21cbe2eb8c, type: 3}
+  m_Color: {r: 0.8392157, g: 0.8392157, b: 0.8392157, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.15, y: 0.27}
+  m_Size: {x: 1.117647, y: 1.8235294}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

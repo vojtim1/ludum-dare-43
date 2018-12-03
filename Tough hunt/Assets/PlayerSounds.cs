@@ -31,24 +31,12 @@ public class PlayerSounds : MonoBehaviour {
     {
         audioSource.PlayOneShot(soundsLists[0].GetRandomClip(), soundsLists[0].GetVolume());
     }
-    void TakeDamage()
+    public void PlayHurtSound()
     {
         audioSource.PlayOneShot(soundsLists[1].GetRandomClip(), soundsLists[1].GetVolume());
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void PlayDeathSound()
     {
-        if(collision.gameObject.layer == 8)
-        {
-            //PlayStepSound();
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 8)
-        {
-            //PlayStepSound();
-        }
+        audioSource.PlayOneShot(soundsLists[2].GetRandomClip(), soundsLists[1].GetVolume());
     }
 }

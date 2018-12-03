@@ -151,9 +151,11 @@ public class Player : MonoBehaviour
 		currentHealth -= damage;
 		healthText.SendMessage("SetText", currentHealth);
 		healthImage.color = new Color(1, 1, 1, 1 - currentHealth / maxHealth);
-		if (currentHealth <= 0)
-		{
-			GameController.instance.GameOver(GameOverState.PLAYERDIED);
-		}
+        if (currentHealth <= 0)
+        {
+            GetComponent<PlayerSounds>().PlayDeathSound();
+            GameController.instance.GameOver(GameOverState.PLAYERDIED);
+        }
+        else GetComponent<PlayerSounds>().PlayHurtSound();
 	}
 }
