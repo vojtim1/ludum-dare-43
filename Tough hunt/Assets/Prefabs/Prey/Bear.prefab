@@ -1144,7 +1144,7 @@ MonoBehaviour:
   harvestTrigger: {fileID: 70627617182374084}
   alive: 1
   nightBoost: 5
-  newDayBoost: 0
+  newDayBoost: 0.2
 --- !u!114 &114467350997766940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1211,8 +1211,8 @@ MonoBehaviour:
   attackDistance: 3
   damage: 40
   attacksPerSecond: 0.6
-  nightBoost: 4
-  newDayBoost: 1.1
+  nightBoost: 3
+  newDayBoost: 0.2
 --- !u!114 &114689639510907436
 MonoBehaviour:
   m_ObjectHideFlags: 1

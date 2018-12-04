@@ -1020,7 +1020,7 @@ MonoBehaviour:
   harvestTrigger: {fileID: 70606219038850272}
   alive: 1
   nightBoost: 5
-  newDayBoost: 1.1
+  newDayBoost: 0.1
 --- !u!114 &114166369793043092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1199,7 +1199,7 @@ MonoBehaviour:
   fear: 0
   fearTime: 3
   nightBoost: 2
-  newDayBoost: 0
+  newDayBoost: 0.2
 --- !u!114 &114906966956658758
 MonoBehaviour:
   m_ObjectHideFlags: 1

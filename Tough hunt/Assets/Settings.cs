@@ -28,4 +28,29 @@ public class Settings : MonoBehaviour {
             return true;
         else return false;
     }
+	public void SetGameOverState(GameOverState state)
+	{
+		switch (state)
+		{
+			case GameOverState.PLAYERDIED:
+				PlayerPrefs.SetInt("gameOverState", 0);
+				break;
+			case GameOverState.VILLAGERAIDED:
+				PlayerPrefs.SetInt("gameOverState", 1);
+				break;
+		}
+	}
+	public int GetGameOverState()
+	{
+		return PlayerPrefs.GetInt("gameOverState");
+	}
+
+	public void SetDaysSurvived(int daysSurvived)
+	{
+		PlayerPrefs.SetInt("daysSurvived", daysSurvived);
+	}
+	public int GetDaysSurvived()
+	{
+		return PlayerPrefs.GetInt("daysSurvived");
+	}
 }

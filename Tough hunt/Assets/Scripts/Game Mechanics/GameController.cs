@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
@@ -77,6 +78,8 @@ public class GameController : MonoBehaviour {
 	public MessageBoard messageboard;
 
 	public GameObject foodDisplay;
+
+	public GameObject ambientAudio;
 
 	void Awake()
 	{
@@ -231,18 +234,11 @@ public class GameController : MonoBehaviour {
 
 	public void GameOver(GameOverState gameOverState)
 	{
-		PauseGame();
-		string gameOverMessage = "";
-		// TODO: Replace MessageBoard with GameOver screen
-		switch (gameOverState)
-		{
-			case GameOverState.PLAYERDIED:
-				gameOverMessage = "You died. The game is over.";
-				break;
-			case GameOverState.VILLAGERAIDED:
-				gameOverMessage = "The village was raided. The game is over.";
-				break;
-		}
-		messageboard.DisplayText("Game over!", gameOverMessage, false);
+		Settings settings = Settings.instance;
+
+		settings.SetGameOverState(gameOverState);
+		settings.SetDaysSurvived(currentDay);
+
+		SceneManager.LoadScene(2);
 	}
 }
