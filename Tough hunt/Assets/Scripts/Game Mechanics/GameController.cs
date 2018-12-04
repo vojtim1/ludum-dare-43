@@ -138,7 +138,10 @@ public class GameController : MonoBehaviour {
 					List<GameObject> animals = spawners[i].GetAnimals();
 					for (int j = 0; j < animals.Count; j++)
 					{
-						animals[j].SendMessage("NightBoost");
+						if (animals[j] != null)
+						{
+							animals[j].SendMessage("NightBoost");
+						}
 					}
 				}
 				nightEvaluated = true;
