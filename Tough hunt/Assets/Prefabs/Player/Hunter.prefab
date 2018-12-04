@@ -775,16 +775,16 @@ MonoBehaviour:
   - listName: Death Sounds
     volume: 0.631
     audioClips:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8300000, guid: a041916c22b50fb4596041f1565eeb4e, type: 3}
+    - {fileID: 8300000, guid: 49483d1434ba53f47a2df822e2db93fe, type: 3}
+    - {fileID: 8300000, guid: e34e1746a708a6a47a2b30b2bf04c5c7, type: 3}
+    - {fileID: 8300000, guid: 865cd01ce37d3bf4b870f5941920065b, type: 3}
+    - {fileID: 8300000, guid: d4040518162912e4597f1042284c5e78, type: 3}
+    - {fileID: 8300000, guid: cd1553a899fd6a34bad31eff78aa2835, type: 3}
+    - {fileID: 8300000, guid: 45a9376574c4f514a8247b4fd2a30d0e, type: 3}
+    - {fileID: 8300000, guid: d2fd85121c406ab4cadc6586c435143d, type: 3}
+    - {fileID: 8300000, guid: 4d37e39fee312574ea1b9081489b7e99, type: 3}
+    - {fileID: 8300000, guid: a4810c1002da8f04fbf03a34ce739853, type: 3}
   stepDistance: 1.3
 --- !u!114 &114305568032582148
 MonoBehaviour:
@@ -975,9 +975,6 @@ MonoBehaviour:
   arrowSpeed: 2000
   maxArrowCount: 300
   holdingMaxTime: 1
-  holdIndicator: {fileID: 0}
-  healthText: {fileID: 0}
-  healthImage: {fileID: 0}
   arrow: {fileID: 1297186293645426, guid: 8086f0cde57ec1f4d9c2af87a823745b, type: 2}
   arrowShot: {fileID: 82399289748920368}
   boostModifier: 1

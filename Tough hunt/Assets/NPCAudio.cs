@@ -25,6 +25,6 @@ public class NPCAudio : MonoBehaviour {
     void PlayStepSound()
     {
         if (soundsLists[0].audioClips.Count > 0)
-            audioSource.PlayOneShot(soundsLists[0].GetRandomClip(), soundsLists[0].GetVolume());
+            audioSource.PlayOneShot(soundsLists[0].GetRandomClip(), soundsLists[0].GetVolume() * Settings.instance.GetVolume());
     }
 }

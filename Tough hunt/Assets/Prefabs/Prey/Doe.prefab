@@ -1199,7 +1199,7 @@ MonoBehaviour:
   fear: 0
   fearTime: 3
   nightBoost: 2
-  newDayBoost: 0
+  newDayBoost: 0.2
 --- !u!114 &114906966956658758
 MonoBehaviour:
   m_ObjectHideFlags: 1
