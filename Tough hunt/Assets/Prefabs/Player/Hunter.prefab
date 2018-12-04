@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 114769761612561806}
   - component: {fileID: 82399289748920368}
   - component: {fileID: 114130530244143684}
+  - component: {fileID: 114486273574470636}
   m_Layer: 10
   m_Name: Hunter
   m_TagString: Player
@@ -797,6 +798,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782c9f9e7872fc14eb891e8789ca94a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114486273574470636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398815671160672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cbdaba67329ed44ab9c6274f6b0f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114659940180515932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -973,7 +985,7 @@ MonoBehaviour:
   speed: 400
   arrowDamage: 100
   arrowSpeed: 2000
-  maxArrowCount: 300
+  maxArrowCount: 10
   holdingMaxTime: 1
   arrow: {fileID: 1297186293645426, guid: 8086f0cde57ec1f4d9c2af87a823745b, type: 2}
   arrowShot: {fileID: 82399289748920368}
