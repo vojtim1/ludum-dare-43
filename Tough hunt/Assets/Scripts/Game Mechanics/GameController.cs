@@ -186,6 +186,7 @@ public class GameController : MonoBehaviour {
 	public void SacrificeTheLoot()
 	{
 		village.AddFood(carryingFood);
+        playerScript.Boost(-carryingFood);
 		carryingFood = 0;
 		foodDisplay.SendMessage("SetText", carryingFood);
 	}

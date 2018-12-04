@@ -195,8 +195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - Hello hunter, nice bow!
+  - Hello hunter, nice bow! Will you share some food with us?
   - Yummy steak, may I have one too?
+  - I used to be an adventurer just like you!
   isStatic: 1
   standingStill: 0
   movementPoints:

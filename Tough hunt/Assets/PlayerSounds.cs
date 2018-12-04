@@ -37,7 +37,7 @@ public class PlayerSounds : MonoBehaviour {
     }
     public void PlayDeathSound()
     {
-        audioSource.PlayOneShot(soundsLists[2].GetRandomClip(), soundsLists[1].GetVolume() * UpdateVolume());
+        audioSource.PlayOneShot(soundsLists[2].GetRandomClip(), soundsLists[2].GetVolume() * UpdateVolume());
     }
     float UpdateVolume()
     {

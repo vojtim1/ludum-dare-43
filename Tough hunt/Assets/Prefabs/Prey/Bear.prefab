@@ -1211,7 +1211,7 @@ MonoBehaviour:
   attackDistance: 3
   damage: 40
   attacksPerSecond: 0.6
-  nightBoost: 3
+  nightBoost: 4
   newDayBoost: 0.2
 --- !u!114 &114689639510907436
 MonoBehaviour:

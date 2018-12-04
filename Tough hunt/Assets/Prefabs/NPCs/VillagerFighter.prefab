@@ -231,8 +231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - For the village!
-  - The village suffers from hunger, please help!
+  - Keep it for yourself.
+  - You don't need to share with those people.
+  - Yeah you eat it, you get stronger, that's how it goes.
   isStatic: 1
   standingStill: 0
   movementPoints:

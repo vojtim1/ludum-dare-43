@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 212123545497990238}
   - component: {fileID: 70629418545279014}
   - component: {fileID: 82906497432800998}
+  - component: {fileID: 114774561389639568}
   m_Layer: 11
   m_Name: Arrow
   m_TagString: Untagged
@@ -197,6 +198,17 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   hitGround: {fileID: 8300000, guid: 494a5a8941e79814096073f1c5d9ce4d, type: 3}
   hitMeat: {fileID: 8300000, guid: 767054f283248da49bbdf7cb7857e123, type: 3}
+--- !u!114 &114774561389639568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1297186293645426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cbdaba67329ed44ab9c6274f6b0f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212123545497990238
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -7,6 +7,10 @@ public class Settings : MonoBehaviour {
     {
         instance = this;
         DontDestroyOnLoad(this);
+        if (!PlayerPrefs.HasKey("volume"))
+            PlayerPrefs.SetFloat("volume", 1);
+        if (!PlayerPrefs.HasKey("showHints"))
+            PlayerPrefs.SetInt("ShowHints", 1);
     }
 
     public void SetVolume(float volume)
