@@ -10,6 +10,6 @@ public class TextDisplay : MonoBehaviour {
 
 	public void SetText(int amount)
 	{
-		textField.text = toDisplay + ": " + amount;
+		textField.text = toDisplay + amount;
 	}
 }

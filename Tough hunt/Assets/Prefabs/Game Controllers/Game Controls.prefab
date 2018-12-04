@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dailyFoodIncome: 10
-  foodToSustainRaid: 10
+  foodToSustainRaid: 50
   raidChance: 0.1
 --- !u!114 &114375183310609496
 MonoBehaviour:
@@ -197,6 +197,7 @@ MonoBehaviour:
   timeSpeedBoost: 30
   messageboard: {fileID: 0}
   foodDisplay: {fileID: 0}
+  ambientAudio: {fileID: 0}
 --- !u!114 &114672590282915724
 MonoBehaviour:
   m_ObjectHideFlags: 1

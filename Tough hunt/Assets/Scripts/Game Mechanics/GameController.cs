@@ -141,7 +141,6 @@ public class GameController : MonoBehaviour {
 						animals[j].SendMessage("NightBoost");
 					}
 				}
-				Debug.Log("Boosted.");
 				nightEvaluated = true;
 			}
 		} else if (skippingTime)
